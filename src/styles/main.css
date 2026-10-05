@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Golden Learn — design system
+   Golden Learn — design system (estilos globais)
    Navy #183966 + Orange #F26E21 (cores da marca), linguagem visual inspirada
    em produtos financeiros modernos: tipografia grande e leve, muito respiro,
    bordas finas, gradientes suaves.
@@ -113,12 +113,12 @@ button { font: inherit; cursor: pointer; }
 .lang {
   display: inline-flex; padding: 3px; border-radius: 999px; border: 1px solid var(--line-dark); background: rgba(255, 255, 255, .04);
 }
-.lang button {
-  border: 0; background: transparent; color: rgba(255, 255, 255, .6); font-family: var(--font-mono); font-size: 11.5px;
+.lang a {
+  color: rgba(255, 255, 255, .6); font-family: var(--font-mono); font-size: 11.5px;
   letter-spacing: .06em; padding: 6px 10px; border-radius: 999px; transition: background .2s, color .2s;
 }
-.lang button:hover { color: #fff; }
-.lang button[aria-pressed="true"] { background: #fff; color: var(--ink); }
+.lang a:hover { color: #fff; }
+.lang a[aria-current="true"] { background: #fff; color: var(--ink); }
 
 .menu-toggle { display: none; width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-dark); background: transparent; color: #fff; align-items: center; justify-content: center; }
 .menu-toggle svg { width: 18px; height: 18px; }
@@ -235,7 +235,6 @@ section { position: relative; }
   transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .3s, opacity .4s;
 }
 .sol:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: transparent; }
-.sol.hidden { display: none; }
 .sol-media {
   position: relative; aspect-ratio: 16 / 10; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; padding-top: 56px;
   background: radial-gradient(80% 90% at 50% 100%, rgba(242, 110, 33, .16), transparent 60%), linear-gradient(180deg, #eef1f6, #f8f7f3);
@@ -360,7 +359,7 @@ section { position: relative; }
 .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .footer a:hover { color: #fff; }
 .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--line-dark); font-size: 13px; }
-.socials { display: flex; gap: 10px; }
+.socials { display: flex; gap: 10px; margin-top: 18px; }
 .socials a { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line-dark); display: grid; place-items: center; transition: background .2s, color .2s; }
 .socials a:hover { background: #fff; color: var(--ink); }
 .socials svg { width: 16px; height: 16px; }
@@ -412,7 +411,7 @@ section { position: relative; }
   .sol-body { padding: 24px; }
   .form .row { grid-template-columns: 1fr; }
   .form { padding: 24px; }
-  .lang button { padding: 6px 8px; }
+  .lang a { padding: 6px 8px; }
   .nav-logo img { height: 32px; }
   .tabs { width: 100%; }
   .tabs button { flex: 1; padding: 9px 10px; font-size: 13px; }

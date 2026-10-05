@@ -1,3 +1,7 @@
+node_modules/
+dist/
+.vite-ssg-temp/
 .idea/
 .claude/
 .DS_Store
+*.log

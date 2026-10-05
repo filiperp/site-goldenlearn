@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "title": "Golden Learn — Business performance through technology, data and people",
+    "description": "SaaS platforms and consulting solutions for people development, corporate learning, data-driven management and high-performance operations. Google Cloud Partner."
+  },
+  "nav": {
+    "solutions": "Solutions",
+    "approach": "How we work",
+    "about": "About",
+    "partners": "Partners",
+    "faq": "FAQ",
+    "cta": "Talk to an expert"
+  },
+  "hero": {
+    "badgeTag": "Google Cloud Partner",
+    "badge": "35+ years accelerating organizations",
+    "title": "Our business is your business's <em>performance</em>.",
+    "sub": "We bring together technology, data intelligence and human development to make your company more agile, efficient and ready for what comes next.",
+    "cta1": "Talk to an expert",
+    "cta2": "Explore solutions",
+    "note1": "Modular SaaS platforms",
+    "note2": "Consultative rollout",
+    "note3": "Measurable results",
+    "card1Label": "Career path",
+    "card1Title": "Operations Leadership",
+    "card1Meta": "Progress",
+    "card2Label": "Turnover risk",
+    "card2Title": "Maintenance Team",
+    "card2Pill": "Low and falling",
+    "card3Label": "Certificate issued",
+    "card3Title": "Machine Safety"
+  },
+  "logos": {
+    "title": "Organizations that trust Golden Group"
+  },
+  "pillars": {
+    "eyebrow": "Platform",
+    "title": "A complete ecosystem for organizational <em>performance</em>.",
+    "sub": "Ten integrated solutions across three fronts. Start with one, combine several and scale at your own pace.",
+    "p1Tag": "4 solutions",
+    "p1Title": "People & Careers",
+    "p1Text": "Develop, assess and retain talent with data — from onboarding to succession.",
+    "p2Tag": "3 solutions",
+    "p2Title": "Learning & Content",
+    "p2Text": "Turn company knowledge into engaging digital and immersive experiences.",
+    "p3Tag": "3 solutions",
+    "p3Title": "Data & Operations",
+    "p3Text": "Data-driven decisions, high-performing assets and operational excellence.",
+    "link": "See solutions"
+  },
+  "solutions": {
+    "eyebrow": "Solutions",
+    "title": "Technology that turns into results.",
+    "sub": "Each solution tackles a real business problem — and they all work together.",
+    "all": "All",
+    "people": "People",
+    "learning": "Learning",
+    "data": "Data & Operations",
+    "cta": "Learn more"
+  },
+  "approach": {
+    "eyebrow": "How we work",
+    "title": "From strategy to results, in four moves.",
+    "sub": "We don't just ship software. We pair technology with consulting so change actually happens — and sticks.",
+    "s1Title": "Diagnosis",
+    "s1Text": "We map processes, people and data to find where the biggest gains are and which metrics truly matter.",
+    "s2Title": "Design",
+    "s2Text": "We define the right mix of solutions, goals and KPIs for your context — no generic packages.",
+    "s3Title": "Rollout",
+    "s3Text": "We go live with integration into your systems, team enablement and change management.",
+    "s4Title": "Continuous evolution",
+    "s4Text": "We track the metrics and evolve with you. Performance isn't a project — it's a routine."
+  },
+  "spot": {
+    "eyebrow": "Immersive Learn",
+    "title": "Train for what's dangerous, rare or costly — <em>risk-free</em>.",
+    "text": "Simulators, virtual and augmented reality turn complex training into safe, hands-on experiences. Ideal for DICE content, where making mistakes in the real world is not an option.",
+    "d": "Dangerous",
+    "i": "Impossible",
+    "c": "Counterproductive",
+    "e": "Expensive",
+    "cta": "Discover Immersive Learn"
+  },
+  "about": {
+    "eyebrow": "Golden Group",
+    "title": "More than 35 years driving organizations forward.",
+    "text": "Golden Group brings together hundreds of successful projects in performance, digital transformation and human development, alongside leading organizations in Brazil and worldwide. We turn data into decisions, people into potential and businesses into the future.",
+    "v1Title": "Holistic view",
+    "v1Text": "We see people, processes, data and technology as a single system.",
+    "v2Title": "Validated innovation",
+    "v2Text": "Google Cloud partnership and methods grounded in global references.",
+    "v3Title": "Results-driven",
+    "v3Text": "Every project starts with clear goals and metrics to measure impact."
+  },
+  "stats": {
+    "s1": "years of experience in organizational performance",
+    "s2": "integrated solutions on a single platform",
+    "s3": "fronts: people, learning and data",
+    "s4": "cloud architecture, modular and scalable"
+  },
+  "partners": {
+    "eyebrow": "Ecosystem",
+    "title": "Alliances that connect innovation to results.",
+    "sub": "We bring together technology, know-how and people through strategic partnerships with global leaders in transformative solutions.",
+    "c1Title": "Strategic partners",
+    "c1Text": "Group companies and technology partners that expand our delivery capacity.",
+    "c2Title": "Academic references",
+    "c2Text": "Methods inspired by knowledge from the world's most respected institutions.",
+    "googleTitle": "Google Cloud Partner",
+    "googleText": "Innovation validated by Google: our solutions run on enterprise-grade cloud infrastructure.",
+    "googleLink": "View partner profile"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Everything you need to know before getting started.",
+    "sub": "Didn't find your question? Get in touch — we reply fast.",
+    "q1": "Can solutions be purchased separately?",
+    "a1": "Yes. All platforms are modular: you can start with a single solution and add others as needed, taking advantage of how they integrate.",
+    "q2": "How long does a rollout take?",
+    "a2": "It depends on scope. After the diagnosis we present a timeline with clear milestones. SaaS solutions can go live within weeks; larger transformation projects run in waves, delivering value from the very first release.",
+    "q3": "Do the platforms integrate with the systems we already use?",
+    "a3": "Yes. Our solutions are designed to connect to corporate systems such as ERP, HR and LMS. Integration scope is defined with your team during the diagnosis phase.",
+    "q4": "Which industries and company sizes do you serve?",
+    "a4": "We serve mid-sized and large organizations in industries such as manufacturing, mining, food, pharmaceuticals, retail and financial services.",
+    "q5": "How is my company's data protected?",
+    "a5": "Our solutions run on enterprise-grade cloud infrastructure and follow data protection principles (including Brazil's LGPD), with role-based access control and full traceability."
+  },
+  "cta": {
+    "eyebrow": "Contact",
+    "title": "Ready to accelerate your business performance?",
+    "sub": "Tell us a little about your challenge. An expert will get back to you with a clear path forward — no strings attached.",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn"
+  },
+  "form": {
+    "title": "Talk to an expert",
+    "name": "Name",
+    "company": "Company",
+    "email": "Work email",
+    "interest": "Interest",
+    "opt0": "Select a front",
+    "opt1": "People & Careers",
+    "opt2": "Learning & Content",
+    "opt3": "Data & Operations",
+    "opt4": "Not sure yet — I'd like guidance",
+    "message": "Message",
+    "messagePh": "What challenge do you want to solve?",
+    "submit": "Send via WhatsApp",
+    "note": "Submitting will open a WhatsApp conversation with your message.",
+    "waIntro": "Hello, Golden Learn! I'd like to talk to an expert."
+  },
+  "footer": {
+    "tagline": "We turn data into decisions, people into potential and businesses into the future.",
+    "solutions": "Solutions",
+    "company": "Company",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "made": "Technology · Data · People"
+  },
+  "solutionItems": [
+    {
+      "id": "paths",
+      "name": "Paths to Growth",
+      "kicker": "People and career development",
+      "text": "A modular SaaS platform that brings visibility, control and efficiency to every stage of development — from training to each employee's professional growth.",
+      "feats": [
+        "Personalized career paths",
+        "Competency map by role",
+        "Modular, scalable architecture"
+      ]
+    },
+    {
+      "id": "comprova",
+      "name": "Comprova+",
+      "kicker": "Competency assessment and diagnosis",
+      "text": "Build custom questionnaires and get accurate analytical reports to make talent decisions, map gaps and plan succession for key positions.",
+      "feats": [
+        "Smart questionnaires",
+        "Automated analytical reports",
+        "Gap and succession mapping"
+      ]
+    },
+    {
+      "id": "retention",
+      "name": "HR Retention Machine",
+      "kicker": "AI to prevent and reduce turnover",
+      "text": "Artificial intelligence and data science to spot attrition risks, predict turnover patterns and guide retention actions before talent walks out the door.",
+      "feats": [
+        "Risk score per employee",
+        "Turnover forecasting",
+        "Recommended action plans"
+      ]
+    },
+    {
+      "id": "strengths",
+      "name": "Strengths-Based Management",
+      "kicker": "High performance built on people's best",
+      "text": "A management and leadership model combining next-generation psychometrics, artificial intelligence and the Big Five model to map personality, talents and skills.",
+      "feats": [
+        "Big Five psychometrics",
+        "Leadership development",
+        "Complementary teams"
+      ]
+    },
+    {
+      "id": "tdplanner",
+      "name": "TD Planner",
+      "kicker": "100% digital training management",
+      "text": "Automates the full cycle of training planning, delivery and certification, cutting operating costs with centralized, agile and efficient management.",
+      "feats": [
+        "Annual planning and budgeting",
+        "Attendance and effectiveness tracking",
+        "Traceable digital certificates"
+      ]
+    },
+    {
+      "id": "content",
+      "name": "E-learning Content Factory",
+      "kicker": "Your company's knowledge, made digital",
+      "text": "A complete structure to turn training into digital experiences, with instructional design, multimedia and integration with your systems — the right knowledge, to the right people, at the right time.",
+      "feats": [
+        "Instructional design",
+        "Video, animation and microlearning",
+        "Fast updates at scale"
+      ]
+    },
+    {
+      "id": "immersive",
+      "name": "Immersive Learn",
+      "kicker": "Virtual reality, augmented reality and simulators",
+      "text": "Turn complex training into immersive, interactive experiences — ideal for content that is dangerous, rare, costly or impossible to replicate in the real world.",
+      "feats": [
+        "VR and AR simulators",
+        "Risk scenarios with zero exposure",
+        "Higher engagement and retention"
+      ]
+    },
+    {
+      "id": "datadriven",
+      "name": "Data-Driven Management",
+      "kicker": "Business Decision System",
+      "text": "We build a data-driven management culture: data integration, data lake, KPI definition, analytics training and Business Decision Rooms with interactive dashboards.",
+      "feats": [
+        "Data integration and data lake",
+        "KPIs and interactive dashboards",
+        "Business Decision Rooms"
+      ]
+    },
+    {
+      "id": "assets",
+      "name": "Intelligent Asset Management",
+      "kicker": "From acquisition to residual value",
+      "text": "Monitor and optimize asset lifecycles with real-time telemetry, BI and AI agents — lower costs, higher availability and greater resale value.",
+      "feats": [
+        "Real-time telemetry",
+        "AI agents for decision-making",
+        "Full lifecycle management"
+      ]
+    },
+    {
+      "id": "ppt",
+      "name": "Process Performance Tools",
+      "kicker": "High-performance operations and maintenance",
+      "text": "A digital and consulting solution that transforms maintenance and operations with excellence models, structured inspections and intelligent monitoring.",
+      "feats": [
+        "Structured inspections",
+        "Availability and productivity",
+        "Operational excellence models"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "title": "Golden Learn — Performance de negócios com tecnologia, dados e pessoas",
+    "description": "Plataformas SaaS e soluções consultivas para desenvolvimento de pessoas, aprendizagem corporativa, gestão data-driven e operações de alta performance. Google Cloud Partner."
+  },
+  "nav": {
+    "solutions": "Soluções",
+    "approach": "Como trabalhamos",
+    "about": "Sobre",
+    "partners": "Parceiros",
+    "faq": "FAQ",
+    "cta": "Fale com um especialista"
+  },
+  "hero": {
+    "badgeTag": "Google Cloud Partner",
+    "badge": "+35 anos acelerando organizações",
+    "title": "O nosso negócio é a <em>performance</em> do seu negócio.",
+    "sub": "Unimos tecnologia, inteligência de dados e desenvolvimento humano para tornar sua empresa mais ágil, eficiente e pronta para o que vem a seguir.",
+    "cta1": "Fale com um especialista",
+    "cta2": "Conheça as soluções",
+    "note1": "Plataformas SaaS modulares",
+    "note2": "Implantação consultiva",
+    "note3": "Resultados mensuráveis",
+    "card1Label": "Trilha de carreira",
+    "card1Title": "Liderança de Operações",
+    "card1Meta": "Progresso",
+    "card2Label": "Risco de turnover",
+    "card2Title": "Time de Manutenção",
+    "card2Pill": "Baixo e em queda",
+    "card3Label": "Certificado emitido",
+    "card3Title": "Segurança em Máquinas"
+  },
+  "logos": {
+    "title": "Organizações que confiam no Grupo Golden"
+  },
+  "pillars": {
+    "eyebrow": "Plataforma",
+    "title": "Um ecossistema completo para a <em>performance</em> organizacional.",
+    "sub": "Dez soluções integradas, organizadas em três frentes. Comece por uma, combine várias e escale no seu ritmo.",
+    "p1Tag": "4 soluções",
+    "p1Title": "Pessoas & Carreiras",
+    "p1Text": "Desenvolva, avalie e retenha talentos com dados — do onboarding à sucessão.",
+    "p2Tag": "3 soluções",
+    "p2Title": "Aprendizagem & Conteúdo",
+    "p2Text": "Transforme o conhecimento da empresa em experiências digitais e imersivas que engajam.",
+    "p3Tag": "3 soluções",
+    "p3Title": "Dados & Operações",
+    "p3Text": "Decisões orientadas por dados, ativos de alto desempenho e operações de excelência.",
+    "link": "Ver soluções"
+  },
+  "solutions": {
+    "eyebrow": "Soluções",
+    "title": "Tecnologia que se traduz em resultado.",
+    "sub": "Cada solução resolve um problema real de negócio — e todas conversam entre si.",
+    "all": "Todas",
+    "people": "Pessoas",
+    "learning": "Aprendizagem",
+    "data": "Dados & Operações",
+    "cta": "Quero conhecer"
+  },
+  "approach": {
+    "eyebrow": "Como trabalhamos",
+    "title": "Da estratégia ao resultado, em quatro movimentos.",
+    "sub": "Não entregamos só software. Combinamos tecnologia com consultoria para que a mudança aconteça de verdade — e permaneça.",
+    "s1Title": "Diagnóstico",
+    "s1Text": "Mapeamos processos, pessoas e dados para entender onde está o maior potencial de ganho e quais indicadores importam.",
+    "s2Title": "Desenho",
+    "s2Text": "Definimos a combinação certa de soluções, metas e KPIs para o seu contexto — sem pacotes genéricos.",
+    "s3Title": "Implantação",
+    "s3Text": "Colocamos em operação com integração aos seus sistemas, capacitação das equipes e gestão da mudança.",
+    "s4Title": "Evolução contínua",
+    "s4Text": "Acompanhamos os indicadores e evoluímos junto com você. Performance não é projeto: é rotina."
+  },
+  "spot": {
+    "eyebrow": "Immersive Learn",
+    "title": "Treine o que é perigoso, raro ou caro — <em>sem riscos</em>.",
+    "text": "Simuladores, realidade virtual e aumentada transformam treinamentos complexos em experiências práticas e seguras. Ideal para conteúdos DICE, em que errar no mundo real não é uma opção.",
+    "d": "Perigosos",
+    "i": "Impossíveis",
+    "c": "Contraproducentes",
+    "e": "Caros",
+    "cta": "Conhecer o Immersive Learn"
+  },
+  "about": {
+    "eyebrow": "Grupo Golden",
+    "title": "Mais de 35 anos impulsionando organizações.",
+    "text": "O Grupo Golden reúne centenas de projetos bem-sucedidos em performance, transformação digital e desenvolvimento humano, ao lado de organizações de referência no Brasil e no mundo. Transformamos dados em decisões, pessoas em potência e negócios em futuro.",
+    "v1Title": "Visão holística",
+    "v1Text": "Olhamos pessoas, processos, dados e tecnologia como um único sistema.",
+    "v2Title": "Inovação validada",
+    "v2Text": "Parceria Google Cloud e metodologias com base em referências globais.",
+    "v3Title": "Foco em resultado",
+    "v3Text": "Cada projeto nasce com metas claras e indicadores para medir o impacto."
+  },
+  "stats": {
+    "s1": "anos de experiência em performance organizacional",
+    "s2": "soluções integradas em uma única plataforma",
+    "s3": "frentes: pessoas, aprendizagem e dados",
+    "s4": "arquitetura em nuvem, modular e escalável"
+  },
+  "partners": {
+    "eyebrow": "Ecossistema",
+    "title": "Alianças que conectam inovação a resultados.",
+    "sub": "Unimos tecnologia, know-how e pessoas por meio de parcerias estratégicas com líderes globais em soluções transformadoras.",
+    "c1Title": "Parceiros estratégicos",
+    "c1Text": "Empresas do grupo e parceiros de tecnologia que ampliam nossa capacidade de entrega.",
+    "c2Title": "Referências acadêmicas",
+    "c2Text": "Metodologias inspiradas no conhecimento das instituições mais respeitadas do mundo.",
+    "googleTitle": "Google Cloud Partner",
+    "googleText": "Inovação validada pelo Google: nossas soluções rodam sobre infraestrutura de nuvem de nível corporativo.",
+    "googleLink": "Ver perfil de parceiro"
+  },
+  "faq": {
+    "eyebrow": "Perguntas frequentes",
+    "title": "Tudo o que você precisa saber antes de começar.",
+    "sub": "Não encontrou sua dúvida? Fale com a gente — respondemos rápido.",
+    "q1": "As soluções podem ser contratadas separadamente?",
+    "a1": "Sim. Todas as plataformas são modulares: você pode começar por uma única solução e incorporar outras conforme sua necessidade, aproveitando a integração entre elas.",
+    "q2": "Quanto tempo leva uma implantação?",
+    "a2": "Depende do escopo. Após o diagnóstico, apresentamos um cronograma com marcos claros. Soluções SaaS podem entrar em operação em semanas; projetos de transformação maiores são conduzidos em ondas, gerando valor desde a primeira entrega.",
+    "q3": "As plataformas se integram aos sistemas que já usamos?",
+    "a3": "Sim. As soluções são projetadas para se conectar a sistemas corporativos como ERP, RH e LMS. O escopo de integração é definido junto com o seu time na etapa de diagnóstico.",
+    "q4": "Para quais setores e portes de empresa vocês atuam?",
+    "a4": "Atendemos organizações de médio e grande porte em setores como indústria, mineração, alimentos, farmacêutico, varejo e serviços financeiros.",
+    "q5": "Como os dados da minha empresa são protegidos?",
+    "a5": "Nossas soluções rodam sobre infraestrutura em nuvem de nível corporativo e seguem os princípios da LGPD, com controle de acesso por perfil e rastreabilidade das informações."
+  },
+  "cta": {
+    "eyebrow": "Contato",
+    "title": "Vamos acelerar a performance do seu negócio?",
+    "sub": "Conte um pouco sobre o seu desafio. Um especialista vai retornar com um caminho claro — sem compromisso.",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn"
+  },
+  "form": {
+    "title": "Fale com um especialista",
+    "name": "Nome",
+    "company": "Empresa",
+    "email": "E-mail corporativo",
+    "interest": "Interesse",
+    "opt0": "Selecione uma frente",
+    "opt1": "Pessoas & Carreiras",
+    "opt2": "Aprendizagem & Conteúdo",
+    "opt3": "Dados & Operações",
+    "opt4": "Ainda não sei — quero orientação",
+    "message": "Mensagem",
+    "messagePh": "Qual desafio você quer resolver?",
+    "submit": "Enviar pelo WhatsApp",
+    "note": "Ao enviar, abriremos uma conversa no WhatsApp com a sua mensagem.",
+    "waIntro": "Olá, Golden Learn! Gostaria de falar com um especialista."
+  },
+  "footer": {
+    "tagline": "Transformamos dados em decisões, pessoas em potência e negócios em futuro.",
+    "solutions": "Soluções",
+    "company": "Empresa",
+    "contact": "Contato",
+    "rights": "Todos os direitos reservados.",
+    "made": "Tecnologia · Dados · Pessoas"
+  },
+  "solutionItems": [
+    {
+      "id": "paths",
+      "name": "Paths to Growth",
+      "kicker": "Desenvolvimento de pessoas e carreiras",
+      "text": "Plataforma SaaS modular que dá visibilidade, controle e eficiência a todas as etapas do desenvolvimento — da capacitação ao crescimento profissional de cada colaborador.",
+      "feats": [
+        "Trilhas de carreira personalizadas",
+        "Mapa de competências por cargo",
+        "Arquitetura modular e escalável"
+      ]
+    },
+    {
+      "id": "comprova",
+      "name": "Comprova+",
+      "kicker": "Avaliação e diagnóstico de competências",
+      "text": "Crie questionários personalizados e receba relatórios analíticos precisos para decidir sobre talentos, mapear gaps e planejar a sucessão em posições-chave.",
+      "feats": [
+        "Questionários inteligentes",
+        "Relatórios analíticos automáticos",
+        "Mapeamento de gaps e sucessão"
+      ]
+    },
+    {
+      "id": "retention",
+      "name": "HR Retention Machine",
+      "kicker": "IA para prevenir e reduzir o turnover",
+      "text": "Inteligência artificial e ciência de dados para identificar riscos de desligamento, prever padrões de rotatividade e orientar ações de retenção antes que o talento vá embora.",
+      "feats": [
+        "Score de risco por colaborador",
+        "Previsão de rotatividade",
+        "Planos de ação recomendados"
+      ]
+    },
+    {
+      "id": "strengths",
+      "name": "Gestão por Pontos Fortes",
+      "kicker": "Alta performance a partir do melhor de cada um",
+      "text": "Modelo de gestão e liderança que combina psicometria de última geração, inteligência artificial e o modelo Big Five para mapear personalidade, talentos e habilidades.",
+      "feats": [
+        "Psicometria com modelo Big Five",
+        "Desenvolvimento de lideranças",
+        "Equipes complementares"
+      ]
+    },
+    {
+      "id": "tdplanner",
+      "name": "TD Planner",
+      "kicker": "Gestão de treinamentos 100% digital",
+      "text": "Automatiza todo o ciclo de planejamento, execução e certificação de treinamentos, reduzindo custos operacionais com uma gestão centralizada, ágil e eficiente.",
+      "feats": [
+        "Planejamento e orçamento anual",
+        "Controle de presença e eficácia",
+        "Certificação digital rastreável"
+      ]
+    },
+    {
+      "id": "content",
+      "name": "Fábrica de Conteúdo EAD",
+      "kicker": "O conhecimento da sua empresa, em formato digital",
+      "text": "Estrutura completa para converter treinamentos em experiências digitais, com design instrucional, recursos multimídia e integração aos seus sistemas — o conhecimento certo, para a pessoa certa, na hora certa.",
+      "feats": [
+        "Design instrucional",
+        "Vídeo, animação e microlearning",
+        "Atualização rápida e em escala"
+      ]
+    },
+    {
+      "id": "immersive",
+      "name": "Immersive Learn",
+      "kicker": "Realidade virtual, aumentada e simuladores",
+      "text": "Transforme treinamentos complexos em experiências imersivas e interativas — ideal para conteúdos perigosos, raros, caros ou inviáveis no mundo real.",
+      "feats": [
+        "Simuladores em VR e AR",
+        "Cenários de risco sem exposição",
+        "Mais engajamento e retenção"
+      ]
+    },
+    {
+      "id": "datadriven",
+      "name": "Gestão Data-Driven",
+      "kicker": "Business Decision System",
+      "text": "Implantamos a cultura de gestão orientada por dados: integração, datalake, definição de KPIs, capacitação analítica e Business Decision Rooms com dashboards interativos.",
+      "feats": [
+        "Integração de dados e datalake",
+        "KPIs e dashboards interativos",
+        "Business Decision Rooms"
+      ]
+    },
+    {
+      "id": "assets",
+      "name": "Gestão Inteligente de Ativos",
+      "kicker": "Da aquisição ao valor residual",
+      "text": "Monitore e otimize o ciclo de vida dos ativos com telemetria em tempo real, BI e agentes de IA — menos custo, mais disponibilidade e maior valor de revenda.",
+      "feats": [
+        "Telemetria em tempo real",
+        "Agentes de IA para decisão",
+        "Gestão do ciclo de vida completo"
+      ]
+    },
+    {
+      "id": "ppt",
+      "name": "Process Performance Tools",
+      "kicker": "Operação e manutenção de alta performance",
+      "text": "Solução digital e consultiva que transforma manutenção e operação com modelos de excelência, inspeções estruturadas e monitoramento inteligente.",
+      "feats": [
+        "Inspeções estruturadas",
+        "Disponibilidade e produtividade",
+        "Modelos de excelência operacional"
+      ]
+    }
+  ]
+}

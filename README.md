@@ -1,49 +1,55 @@
-# Golden Learn — site institucional (redesign)
+# Golden Learn — site institucional
 
-Site estático (HTML + CSS + JS puro, sem build) com tradução **PT / EN / ES**.
+Vue 3 + Vite + [vite-ssg](https://github.com/antfu-collective/vite-ssg): o build pré-renderiza cada idioma
+em HTML estático (bom para SEO) e o Vue hidrata a página no navegador.
 
-## Rodar localmente
+| Idioma | URL | Arquivo gerado |
+|---|---|---|
+| Português (padrão) | `/` | `dist/index.html` |
+| English | `/en/` | `dist/en/index.html` |
+| Español | `/es/` | `dist/es/index.html` |
+
+## Comandos
+
+Requer Node 20+.
 
 ```bash
-python3 -m http.server 8000
-# abra http://localhost:8000  (ou ?lang=en / ?lang=es)
+npm install
+npm run dev       # servidor de desenvolvimento em http://localhost:5173
+npm run build     # typecheck + gera o site estático em dist/
+npm run preview   # serve o dist/ localmente
 ```
 
-Para publicar, basta enviar a pasta inteira para qualquer hospedagem estática (Netlify, Vercel, S3, cPanel, etc.).
+Para publicar, envie o conteúdo de `dist/` para qualquer hospedagem estática (Netlify, Vercel, Cloudflare Pages,
+S3, cPanel...). Nenhum servidor Node é necessário.
 
 ## Estrutura
 
 ```
-index.html              página única (conteúdo PT inline para SEO)
-assets/css/style.css    design system (tokens no :root)
-assets/js/i18n.js       TODOS os textos nos 3 idiomas + dados das 10 soluções
-assets/js/main.js       troca de idioma, filtros, animações, formulário → WhatsApp
-assets/img/
-  logo.png / logo-white.png   logo original e versão branca (fundo escuro)
-  products/                   mockups das soluções (recortados, WebP)
-  partners/                   faixas de logos de parceiros, instituições e clientes
-  unsplash/                   fotos do Unsplash (WebP, 1600px)
-  original/                   imagens baixadas do site atual, sem alteração
+index.html                  shell HTML (fontes, favicon)
+src/main.ts                 rotas por idioma, vue-i18n e diretiva v-reveal
+src/pages/HomePage.vue      monta as seções + <head> (title, description, canonical, hreflang)
+src/components/             uma seção por componente (Hero, Solutions, Faq, Contact...)
+src/locales/{pt,en,es}.json TODOS os textos do site
+src/data/site.ts            WhatsApp, redes sociais, clientes e metadados das soluções
+src/styles/main.css         design system (tokens no :root)
+public/img/                 imagens (originais do site antigo, mockups, Unsplash)
+public/sitemap.xml          sitemap com as 3 versões de idioma
 ```
 
-## Editando textos e idiomas
+## Editando conteúdo
 
-- Cada elemento traduzível tem `data-i18n="chave"`; o texto está em `assets/js/i18n.js` nas seções `pt`, `en` e `es`.
-- As soluções (nome, descrição, bullets, imagem, categoria) ficam no array `solutions` de cada idioma.
-- O idioma é escolhido por `?lang=`, pela preferência salva no navegador ou pelo idioma do navegador (padrão: PT).
-
-## Contato / formulário
-
-O formulário não precisa de backend: monta a mensagem e abre o WhatsApp `+55 11 91553-8743`
-(constante `WHATSAPP` em `assets/js/main.js`).
+- **Textos:** altere a mesma chave em `src/locales/pt.json`, `en.json` e `es.json`.
+- **Soluções:** textos em `solutionItems` (nos JSONs); categoria e imagem em `SOLUTIONS` (`src/data/site.ts`).
+- **Contato/redes:** constantes em `src/data/site.ts`. O formulário abre o WhatsApp com a mensagem — não há backend.
+- **Novo idioma:** adicione o JSON, inclua o código em `LOCALES`, `HTML_LANG` e `LOCALE_PATH` e registre as
+  mensagens em `src/main.ts`.
 
 ## Pendências para revisar antes de publicar
 
-- **Links de Instagram e LinkedIn**: o site atual não expunha as URLs; usei `instagram.com/goldenlearn` e
-  `linkedin.com/company/goldenlearn` como suposição — confirme em `index.html`.
-- **FAQ**: respostas sobre prazos, integrações, setores e LGPD foram redigidas a partir do conteúdo do site; valide com o time.
-- **Cards flutuantes do hero** (“Liderança de Operações 78%”, etc.) são ilustrações de interface, não dados reais.
-- **Marquee de clientes**: nomes extraídos da arte “empresas parceiras” do site atual (exibidos como texto).
+- **Instagram e LinkedIn:** as URLs em `src/data/site.ts` são suposições (o site antigo não as expunha).
+- **FAQ:** respostas sobre prazos, integrações, setores e LGPD foram redigidas a partir do site antigo; valide com o time.
+- **Cards flutuantes do hero** (ex.: “78%”) são ilustração de interface, não dados reais.
 
 ## Créditos das fotos (Unsplash — licença Unsplash)
 
