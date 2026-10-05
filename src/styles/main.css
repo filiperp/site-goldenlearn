@@ -135,6 +135,10 @@ address { font-style: normal; }
 .hero-globe {
   position: absolute; left: 50%; top: 52%; z-index: -1; aspect-ratio: 1;
   width: max(100vmin, min(1200px, 100vw)); transform: translate(-50%, -50%);
+  /* dissolve as bordas do canvas no fundo — nenhuma aresta do quadrado fica visível */
+  mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
+  pointer-events: none;
 }
 .hero-globe canvas { width: 100%; height: 100%; display: block; opacity: 0; transition: opacity 1.4s var(--ease); }
 .hero-globe canvas.ready { opacity: 1; }
@@ -214,7 +218,7 @@ section { position: relative; }
   gap: 12px; padding: var(--card-pad); isolation: isolate; border: 1px solid var(--line); transition: transform .6s var(--ease), border-color .4s;
 }
 .pillar:hover { transform: translateY(-6px); border-color: rgba(255, 181, 71, .35); }
-.pillar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; filter: saturate(.85); transition: transform 1.4s var(--ease), filter .6s; }
+.pillar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; z-index: -2; filter: saturate(.85); transition: transform 1.4s var(--ease), filter .6s; }
 .pillar:hover img { transform: scale(1.06); filter: saturate(1); }
 .pillar::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(5, 7, 13, .3) 0%, rgba(5, 7, 13, 0) 30%, rgba(5, 7, 13, .6) 55%, rgba(5, 7, 13, .96)); }
 .pillar .tag { position: absolute; top: 20px; left: 20px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 6px 12px; border-radius: 99px; background: rgba(5, 7, 13, .5); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--line-2); }

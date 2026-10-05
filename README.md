@@ -90,7 +90,7 @@ preload das fontes do título/texto, fallbacks de fonte sem layout shift e títu
 |---|---|
 | hero | https://images.unsplash.com/photo-1522071820081-009f0129c71c |
 | team | https://images.unsplash.com/photo-1551434678-e076c223a692 |
-| meeting | https://images.unsplash.com/photo-1531482615713-2afd69097998 |
+| careers | https://images.unsplash.com/photo-1573496359142-b8d87734a5a2 |
 | data | https://images.unsplash.com/photo-1551288049-bebda4e38f71 |
 | vr | https://images.unsplash.com/photo-1593508512255-86ab42a8e620 |
 | learning | https://images.unsplash.com/photo-1524178232363-1fb2b075b655 |

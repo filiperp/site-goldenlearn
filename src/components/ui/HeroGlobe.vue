@@ -82,7 +82,8 @@ function init(el: HTMLCanvasElement) {
     const ca = Math.cos(a), sa = Math.sin(a), ct = Math.cos(tilt), st = Math.sin(tilt)
 
     // halo + corpo da esfera
-    const halo = c.createRadialGradient(cx, cy, R * 0.8, cx, cy, R * 1.7)
+    // o halo termina dentro do canvas (raio ≤ metade do lado) para não formar borda reta
+    const halo = c.createRadialGradient(cx, cy, R * 0.8, cx, cy, Math.min(R * 1.7, Math.min(w, h) / 2 - 1))
     halo.addColorStop(0, 'rgba(242,110,33,0.16)')
     halo.addColorStop(0.5, 'rgba(47,111,214,0.08)')
     halo.addColorStop(1, 'rgba(47,111,214,0)')

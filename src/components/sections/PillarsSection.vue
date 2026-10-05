@@ -10,7 +10,7 @@ const { t } = useI18n()
 const { filter } = useSiteState()
 
 const pillars: { key: string; cat: Category; img: string }[] = [
-  { key: 'p1', cat: 'people', img: 'meeting' },
+  { key: 'p1', cat: 'people', img: 'careers' },
   { key: 'p2', cat: 'learning', img: 'learning' },
   { key: 'p3', cat: 'data', img: 'data' },
 ]
