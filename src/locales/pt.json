@@ -28,7 +28,17 @@
     "card2Title": "Time de Manutenção",
     "card2Pill": "Baixo e em queda",
     "card3Label": "Certificado emitido",
-    "card3Title": "Segurança em Máquinas"
+    "card3Title": "Segurança em Máquinas",
+    "askLabel": "O que você quer melhorar na sua empresa?",
+    "askPh": "Ex.: preciso reduzir o turnover da operação e treinar novas lideranças…",
+    "askSend": "Enviar pergunta",
+    "scroll": "Explore",
+    "chip1": "Reduzir o turnover",
+    "chip2": "Digitalizar treinamentos",
+    "chip3": "Mapear competências",
+    "chip4": "Decidir com dados",
+    "chip5": "Treinar em realidade virtual",
+    "chip6": "Gerir ativos e manutenção"
   },
   "logos": {
     "title": "Organizações que confiam no Grupo Golden"

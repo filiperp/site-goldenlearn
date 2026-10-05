@@ -57,6 +57,7 @@ const company = [
         <span>© {{ year }} Grupo Golden Learn. {{ t('footer.rights') }}</span>
         <span>{{ t('footer.made') }}</span>
       </div>
+      <div class="footer-word" aria-hidden="true">Golden Learn</div>
     </div>
   </footer>
   <a class="wa-float" :href="`https://wa.me/${WHATSAPP}`" target="_blank" rel="noopener" aria-label="WhatsApp">

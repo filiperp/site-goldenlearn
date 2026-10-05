@@ -5,6 +5,7 @@ import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import AppNav from '../components/AppNav.vue'
 import HeroSection from '../components/HeroSection.vue'
+import ShowcaseSection from '../components/ShowcaseSection.vue'
 import LogoMarquee from '../components/LogoMarquee.vue'
 import PillarsSection from '../components/PillarsSection.vue'
 import SolutionsSection from '../components/SolutionsSection.vue'
@@ -54,6 +55,7 @@ onMounted(() => {
   <AppNav />
   <main id="top">
     <HeroSection />
+    <ShowcaseSection />
     <LogoMarquee />
     <PillarsSection />
     <SolutionsSection />

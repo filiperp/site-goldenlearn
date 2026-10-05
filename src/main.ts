@@ -8,6 +8,9 @@ import { vReveal } from './composables/reveal'
 import pt from './locales/pt.json'
 import en from './locales/en.json'
 import es from './locales/es.json'
+import '@fontsource-variable/bricolage-grotesque'
+import '@fontsource-variable/geist'
+import '@fontsource-variable/geist-mono'
 import './styles/main.css'
 
 const routes: RouteRecordRaw[] = LOCALES.map((locale) => ({

@@ -9,6 +9,10 @@ em HTML estático (bom para SEO) e o Vue hidrata a página no navegador.
 | English | `/en/` | `dist/en/index.html` |
 | Español | `/es/` | `dist/es/index.html` |
 
+Visual: tema escuro, títulos em **Bricolage Grotesque**, texto em **Geist** e rótulos em **Geist Mono**
+(fontes auto-hospedadas via Fontsource). O hero tem um globo de partículas em canvas (`HeroGlobe.vue`) e uma
+caixa “O que você quer melhorar?” cujos chips levam à solução correspondente.
+
 ## Comandos
 
 Requer Node 20+.

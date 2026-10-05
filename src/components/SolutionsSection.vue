@@ -8,7 +8,7 @@ import { SOLUTIONS, type Category } from '../data/site'
 interface SolutionText { id: string; name: string; kicker: string; text: string; feats: string[] }
 
 const { t, tm, rt } = useI18n()
-const { filter, contactMessage } = useSiteState()
+const { filter, highlight, contactMessage } = useSiteState()
 
 const tabs: (Category | 'all')[] = ['all', 'people', 'learning', 'data']
 
@@ -32,7 +32,7 @@ function interest(name: string) {
 </script>
 
 <template>
-  <section id="solucoes" class="section section-cream">
+  <section id="solucoes" class="section section-alt">
     <div class="container">
       <div class="solutions-top">
         <div v-reveal class="section-head">
@@ -59,6 +59,7 @@ function interest(name: string) {
           :id="`sol-${s.id}`"
           :key="s.id"
           class="sol"
+          :class="{ highlight: highlight === s.id }"
         >
           <div class="sol-media">
             <span class="tag">{{ t(`solutions.${s.cat}`) }}</span>

@@ -28,7 +28,17 @@
     "card2Title": "Equipo de Mantenimiento",
     "card2Pill": "Bajo y en descenso",
     "card3Label": "Certificado emitido",
-    "card3Title": "Seguridad en Máquinas"
+    "card3Title": "Seguridad en Máquinas",
+    "askLabel": "¿Qué quieres mejorar en tu empresa?",
+    "askPh": "Ej.: necesito reducir la rotación en la operación y formar nuevos líderes…",
+    "askSend": "Enviar pregunta",
+    "scroll": "Explora",
+    "chip1": "Reducir la rotación",
+    "chip2": "Digitalizar capacitaciones",
+    "chip3": "Mapear competencias",
+    "chip4": "Decidir con datos",
+    "chip5": "Entrenar en realidad virtual",
+    "chip6": "Gestionar activos y mantenimiento"
   },
   "logos": {
     "title": "Organizaciones que confían en el Grupo Golden"

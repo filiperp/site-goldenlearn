@@ -28,7 +28,17 @@
     "card2Title": "Maintenance Team",
     "card2Pill": "Low and falling",
     "card3Label": "Certificate issued",
-    "card3Title": "Machine Safety"
+    "card3Title": "Machine Safety",
+    "askLabel": "What do you want to improve in your company?",
+    "askPh": "E.g.: I need to reduce turnover in operations and develop new leaders…",
+    "askSend": "Send question",
+    "scroll": "Explore",
+    "chip1": "Reduce turnover",
+    "chip2": "Digitize training",
+    "chip3": "Map competencies",
+    "chip4": "Decide with data",
+    "chip5": "Train in virtual reality",
+    "chip6": "Manage assets and maintenance"
   },
   "logos": {
     "title": "Organizations that trust Golden Group"

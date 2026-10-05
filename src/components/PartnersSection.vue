@@ -7,7 +7,7 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <section id="parceiros" class="section section-cream">
+  <section id="parceiros" class="section section-alt">
     <div class="container">
       <div v-reveal class="section-head center">
         <span class="eyebrow">{{ t('partners.eyebrow') }}</span>
@@ -35,7 +35,7 @@ const { t } = useI18n()
         </div>
       </div>
       <div v-reveal class="google-badge">
-        <img src="/img/original/Logo-Google-Partner-logo-small-size.png" alt="Google Partner" loading="lazy">
+        <div class="g-logo"><img src="/img/original/Logo-Google-Partner-logo-small-size.png" alt="Google Partner" loading="lazy"></div>
         <div>
           <b>{{ t('partners.googleTitle') }}</b>
           <p>{{ t('partners.googleText') }}</p>
