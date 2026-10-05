@@ -1,6 +1,10 @@
 // Dados do site que não dependem de idioma.
 
-export const SITE_URL = 'https://www.goldenlearn.com.br'
+/** URL pública (sem barra final). No GitHub Pages vem do workflow; padrão = domínio de produção. */
+export const SITE_URL = (import.meta.env.VITE_SITE_URL || 'https://goldenlearn.com.br').replace(/\/+$/, '')
+
+/** Caminho de um arquivo de public/ respeitando o base do Vite (ex.: /site-goldenlearn/ no Pages sem domínio). */
+export const asset = (path: string) => import.meta.env.BASE_URL + path.replace(/^\/+/, '')
 export const SITE_NAME = 'Golden Learn'
 export const ORG_LEGAL_NAME = 'Grupo Golden Learn'
 

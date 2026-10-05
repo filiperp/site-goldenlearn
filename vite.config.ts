@@ -4,6 +4,8 @@ import vue from '@vitejs/plugin-vue'
 import { FontaineTransform } from 'fontaine'
 
 export default defineConfig({
+  // BASE_PATH vem do workflow do GitHub Pages ('/' com domínio próprio, '/<repo>/' sem domínio)
+  base: process.env.BASE_PATH || '/',
   plugins: [
     vue(),
     // Gera fontes de fallback com métricas ajustadas (size-adjust/ascent-override):

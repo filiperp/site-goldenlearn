@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { asset } from '../../data/site'
 
 // Gera srcset a partir das variantes existentes em public/img (ex.: hero-640.webp, hero-1024.webp, hero.webp).
 const VARIANTS = {
@@ -20,7 +21,7 @@ const props = withDefaults(
   { sizes: '100vw', eager: false },
 )
 
-const base = computed(() => `/img/${props.folder}/${props.name}`)
+const base = computed(() => asset(`img/${props.folder}/${props.name}`))
 const srcset = computed(() => {
   const v = VARIANTS[props.folder]
   return [...v.widths.map((w) => `${base.value}-${w}.webp ${w}w`), `${base.value}.webp ${v.full}w`].join(', ')

@@ -3,13 +3,13 @@
 Options -Indexes
 DirectorySlash On
 
-# Força HTTPS e www
+# Força HTTPS e o domínio sem www (mesmo domínio canônico do GitHub Pages)
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteCond %{HTTPS} off [OR]
-  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
-  RewriteRule ^ https://www.%1%{REQUEST_URI} [L,R=301]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
 </IfModule>
 
 # Compressão

@@ -27,10 +27,26 @@ DEBUG_HYDRATION=1 npm run build   # build com detalhes de divergência SSR/clien
 
 ## Publicação
 
+### GitHub Pages (automático)
+
+O workflow `.github/workflows/deploy.yml` faz o build e publica a cada push no `main`
+(ou manualmente em **Actions → Deploy no GitHub Pages → Run workflow**).
+
+- Em **Settings → Pages**, a origem deve ser **GitHub Actions** (não “Deploy from a branch”).
+- O caminho base e a URL do site vêm do próprio Pages (`actions/configure-pages`): com o domínio
+  `goldenlearn.com.br` o site fica na raiz; sem domínio, em `https://<usuario>.github.io/<repo>/` — tudo
+  (imagens, rotas, canonical, sitemap) se ajusta sozinho.
+- O pós-build (`scripts/postbuild.mjs`) gera `sitemap.xml`, `robots.txt`, `404.html` e `.nojekyll`.
+
+Para simular localmente um deploy em subcaminho:
+`BASE_PATH=/site-goldenlearn/ VITE_SITE_URL=https://filiperp.github.io/site-goldenlearn npm run build`
+
+### Outras hospedagens
+
 Envie o conteúdo de `dist/` para qualquer hospedagem estática:
 
-- **Apache / cPanel**: o `public/.htaccess` (copiado para `dist/`) força HTTPS + www, ativa gzip e cache
-  (1 ano para `assets/`, 30 dias para imagens, HTML sempre revalidado).
+- **Apache / cPanel**: o `public/.htaccess` (copiado para `dist/`) força HTTPS no domínio sem www, ativa gzip
+  e cache (1 ano para `assets/`, 30 dias para imagens, HTML sempre revalidado).
 - **Netlify / Cloudflare Pages**: o `public/_headers` aplica as mesmas regras de cache.
 
 ## Estrutura

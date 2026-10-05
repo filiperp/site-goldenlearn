@@ -2,7 +2,7 @@
 import { useI18n } from '../../i18n'
 import AppIcon from './AppIcon.vue'
 import { useSiteState } from '../../composables/useSiteState'
-import { GOOGLE_PARTNER_URL, INSTAGRAM_URL, LINKEDIN_URL, NAV_LINKS, WHATSAPP, WHATSAPP_LABEL, type Category } from '../../data/site'
+import { asset, GOOGLE_PARTNER_URL, INSTAGRAM_URL, LINKEDIN_URL, NAV_LINKS, WHATSAPP, WHATSAPP_LABEL, type Category } from '../../data/site'
 
 const { t } = useI18n()
 const { filter } = useSiteState()
@@ -21,7 +21,7 @@ const company = NAV_LINKS.filter((l) => l.href !== '#solucoes')
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img src="/img/brand/logo-white.png" alt="Golden Learn" width="320" height="132" loading="lazy" decoding="async">
+          <img :src="asset('img/brand/logo-white.png')" alt="Golden Learn" width="320" height="132" loading="lazy" decoding="async">
           <p class="tagline">{{ t('footer.tagline') }}</p>
         </div>
         <nav :aria-label="t('footer.solutions')">
