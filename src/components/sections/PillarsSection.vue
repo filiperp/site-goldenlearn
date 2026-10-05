@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-import AppIcon from './AppIcon.vue'
-import { useSiteState } from '../composables/useSiteState'
-import type { Category } from '../data/site'
+import { useI18n } from '../../i18n'
+import AppIcon from '../ui/AppIcon.vue'
+import ResponsiveImg from '../ui/ResponsiveImg.vue'
+import SectionHeader from '../ui/SectionHeader.vue'
+import { useSiteState } from '../../composables/useSiteState'
+import type { Category } from '../../data/site'
 
 const { t } = useI18n()
 const { filter } = useSiteState()
@@ -15,13 +17,9 @@ const pillars: { key: string; cat: Category; img: string }[] = [
 </script>
 
 <template>
-  <section id="plataforma" class="section">
+  <section id="plataforma" class="section" aria-labelledby="plataforma-title">
     <div class="container">
-      <div v-reveal class="section-head">
-        <span class="eyebrow">{{ t('pillars.eyebrow') }}</span>
-        <h2 class="h2" v-html="t('pillars.title')" />
-        <p class="lead">{{ t('pillars.sub') }}</p>
-      </div>
+      <SectionHeader id="plataforma-title" :eyebrow="t('pillars.eyebrow')" :title="t('pillars.title')" :lead="t('pillars.sub')" />
       <div class="pillars">
         <a
           v-for="(p, i) in pillars"
@@ -32,7 +30,7 @@ const pillars: { key: string; cat: Category; img: string }[] = [
           :data-delay="i"
           @click="filter = p.cat"
         >
-          <img :src="`/img/unsplash/${p.img}.webp`" alt="" loading="lazy">
+          <ResponsiveImg folder="unsplash" :name="p.img" alt="" sizes="(max-width: 1060px) 100vw, 400px" />
           <span class="tag">{{ t(`pillars.${p.key}Tag`) }}</span>
           <h3>{{ t(`pillars.${p.key}Title`) }}</h3>
           <p>{{ t(`pillars.${p.key}Text`) }}</p>

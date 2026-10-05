@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
+import { useI18n } from '../../i18n'
 import AppIcon from './AppIcon.vue'
-import { useSiteState } from '../composables/useSiteState'
-import { GOOGLE_PARTNER_URL, INSTAGRAM_URL, LINKEDIN_URL, WHATSAPP, WHATSAPP_LABEL, type Category } from '../data/site'
+import { useSiteState } from '../../composables/useSiteState'
+import { GOOGLE_PARTNER_URL, INSTAGRAM_URL, LINKEDIN_URL, NAV_LINKS, WHATSAPP, WHATSAPP_LABEL, type Category } from '../../data/site'
 
 const { t } = useI18n()
 const { filter } = useSiteState()
@@ -13,12 +13,7 @@ const fronts: { key: string; cat: Category }[] = [
   { key: 'pillars.p2Title', cat: 'learning' },
   { key: 'pillars.p3Title', cat: 'data' },
 ]
-const company = [
-  { href: '#sobre', key: 'nav.about' },
-  { href: '#como-trabalhamos', key: 'nav.approach' },
-  { href: '#parceiros', key: 'nav.partners' },
-  { href: '#faq', key: 'nav.faq' },
-]
+const company = NAV_LINKS.filter((l) => l.href !== '#solucoes')
 </script>
 
 <template>
@@ -26,23 +21,23 @@ const company = [
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img src="/img/logo-white.png" alt="Golden Learn" width="320" height="132" loading="lazy">
+          <img src="/img/brand/logo-white.png" alt="Golden Learn" width="320" height="132" loading="lazy" decoding="async">
           <p class="tagline">{{ t('footer.tagline') }}</p>
         </div>
-        <div>
-          <h5>{{ t('footer.solutions') }}</h5>
+        <nav :aria-label="t('footer.solutions')">
+          <p class="footer-title">{{ t('footer.solutions') }}</p>
           <ul>
             <li v-for="f in fronts" :key="f.cat"><a href="#solucoes" @click="filter = f.cat">{{ t(f.key) }}</a></li>
           </ul>
-        </div>
-        <div>
-          <h5>{{ t('footer.company') }}</h5>
+        </nav>
+        <nav :aria-label="t('footer.company')">
+          <p class="footer-title">{{ t('footer.company') }}</p>
           <ul>
             <li v-for="c in company" :key="c.href"><a :href="c.href">{{ t(c.key) }}</a></li>
           </ul>
-        </div>
+        </nav>
         <div>
-          <h5>{{ t('footer.contact') }}</h5>
+          <p class="footer-title">{{ t('footer.contact') }}</p>
           <ul>
             <li><a :href="`https://wa.me/${WHATSAPP}`" target="_blank" rel="noopener">{{ WHATSAPP_LABEL }}</a></li>
             <li><a :href="GOOGLE_PARTNER_URL" target="_blank" rel="noopener">Google Cloud Partner</a></li>
@@ -54,13 +49,13 @@ const company = [
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© {{ year }} Grupo Golden Learn. {{ t('footer.rights') }}</span>
-        <span>{{ t('footer.made') }}</span>
+        <small>© {{ year }} Grupo Golden Learn. {{ t('footer.rights') }}</small>
+        <small>{{ t('footer.made') }}</small>
       </div>
-      <div class="footer-word" aria-hidden="true">Golden Learn</div>
+      <p class="footer-word" aria-hidden="true">Golden Learn</p>
     </div>
   </footer>
-  <a class="wa-float" :href="`https://wa.me/${WHATSAPP}`" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <a class="wa-float" :href="`https://wa.me/${WHATSAPP}`" target="_blank" rel="noopener" :aria-label="`WhatsApp ${WHATSAPP_LABEL}`">
     <AppIcon name="whatsapp" />
   </a>
 </template>

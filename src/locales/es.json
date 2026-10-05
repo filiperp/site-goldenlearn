@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Golden Learn — Desempeño empresarial con tecnología, datos y personas",
-    "description": "Plataformas SaaS y soluciones consultivas para desarrollo de personas, aprendizaje corporativo, gestión basada en datos y operaciones de alto desempeño. Google Cloud Partner."
+    "description": "Plataformas SaaS y consultoría para desarrollo de personas, aprendizaje corporativo, gestión basada en datos y operaciones. Google Cloud Partner."
   },
   "nav": {
     "solutions": "Soluciones",
@@ -9,7 +9,11 @@
     "about": "Nosotros",
     "partners": "Aliados",
     "faq": "FAQ",
-    "cta": "Habla con un especialista"
+    "cta": "Habla con un especialista",
+    "label": "Navegación principal",
+    "language": "Idioma",
+    "menu": "Abrir menú",
+    "skip": "Saltar al contenido"
   },
   "hero": {
     "badgeTag": "Google Cloud Partner",
@@ -29,16 +33,10 @@
     "card2Pill": "Bajo y en descenso",
     "card3Label": "Certificado emitido",
     "card3Title": "Seguridad en Máquinas",
-    "askLabel": "¿Qué quieres mejorar en tu empresa?",
-    "askPh": "Ej.: necesito reducir la rotación en la operación y formar nuevos líderes…",
-    "askSend": "Enviar pregunta",
-    "scroll": "Explora",
-    "chip1": "Reducir la rotación",
-    "chip2": "Digitalizar capacitaciones",
-    "chip3": "Mapear competencias",
-    "chip4": "Decidir con datos",
-    "chip5": "Entrenar en realidad virtual",
-    "chip6": "Gestionar activos y mantenimiento"
+    "scroll": "Desliza para explorar",
+    "fact1": "+35 años de experiencia",
+    "fact2": "10 soluciones integradas",
+    "fact3": "Clientes como Pfizer, Nestlé y Santander"
   },
   "logos": {
     "title": "Organizaciones que confían en el Grupo Golden"
@@ -279,5 +277,16 @@
         "Modelos de excelencia operativa"
       ]
     }
-  ]
+  ],
+  "showcase": {
+    "label": "Plataformas Golden Learn en acción"
+  },
+  "alt": {
+    "showcase": "Equipo trabajando junto con las plataformas digitales de Golden Learn",
+    "workshop": "Taller de diagnóstico con un cliente",
+    "vr": "Profesional entrenando con gafas de realidad virtual",
+    "building": "Fachada de edificio corporativo",
+    "team": "Profesionales analizando datos en la computadora",
+    "engineer": "Ingeniera en un laboratorio de pruebas"
+  }
 }

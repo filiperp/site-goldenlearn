@@ -18,12 +18,5 @@ export function useSiteState() {
     highlightTimer = setTimeout(() => (highlight.value = null), 3200)
   }
 
-  /** Leva o texto para o formulário de contato e foca o primeiro campo. */
-  function sendToContact(text: string) {
-    contactMessage.value = text
-    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })
-    setTimeout(() => document.getElementById('f-name')?.focus({ preventScroll: true }), 700)
-  }
-
-  return { filter, highlight, contactMessage, focusSolution, sendToContact }
+  return { filter, highlight, contactMessage, focusSolution }
 }

@@ -1,7 +1,7 @@
 # Golden Learn — site institucional
 
-Vue 3 + Vite + [vite-ssg](https://github.com/antfu-collective/vite-ssg): o build pré-renderiza cada idioma
-em HTML estático (bom para SEO) e o Vue hidrata a página no navegador.
+Vue 3 + Vite + [vite-ssg](https://github.com/antfu-collective/vite-ssg): cada idioma é pré-renderizado em HTML
+estático e o Vue **hidrata** a página no navegador (sem recriar o DOM).
 
 | Idioma | URL | Arquivo gerado |
 |---|---|---|
@@ -10,8 +10,8 @@ em HTML estático (bom para SEO) e o Vue hidrata a página no navegador.
 | Español | `/es/` | `dist/es/index.html` |
 
 Visual: tema escuro, títulos em **Bricolage Grotesque**, texto em **Geist** e rótulos em **Geist Mono**
-(fontes auto-hospedadas via Fontsource). O hero tem um globo de partículas em canvas (`HeroGlobe.vue`) e uma
-caixa “O que você quer melhorar?” cujos chips levam à solução correspondente.
+(auto-hospedadas via Fontsource, com fallbacks de métricas ajustadas pelo `fontaine`). A abertura ocupa a tela
+inteira e tem um globo de partículas em canvas (`HeroGlobe.vue`, carregado sob demanda).
 
 ## Comandos
 
@@ -19,52 +19,81 @@ Requer Node 20+.
 
 ```bash
 npm install
-npm run dev       # servidor de desenvolvimento em http://localhost:5173
-npm run build     # typecheck + gera o site estático em dist/
-npm run preview   # serve o dist/ localmente
+npm run dev        # desenvolvimento em http://localhost:5173
+npm run build      # typecheck + site estático em dist/
+npm run preview    # serve o dist/ localmente
+DEBUG_HYDRATION=1 npm run build   # build com detalhes de divergência SSR/cliente no console
 ```
 
-Para publicar, envie o conteúdo de `dist/` para qualquer hospedagem estática (Netlify, Vercel, Cloudflare Pages,
-S3, cPanel...). Nenhum servidor Node é necessário.
+## Publicação
+
+Envie o conteúdo de `dist/` para qualquer hospedagem estática:
+
+- **Apache / cPanel**: o `public/.htaccess` (copiado para `dist/`) força HTTPS + www, ativa gzip e cache
+  (1 ano para `assets/`, 30 dias para imagens, HTML sempre revalidado).
+- **Netlify / Cloudflare Pages**: o `public/_headers` aplica as mesmas regras de cache.
 
 ## Estrutura
 
 ```
-index.html                  shell HTML (fontes, favicon)
-src/main.ts                 rotas por idioma, vue-i18n e diretiva v-reveal
-src/pages/HomePage.vue      monta as seções + <head> (title, description, canonical, hreflang)
-src/components/             uma seção por componente (Hero, Solutions, Faq, Contact...)
-src/locales/{pt,en,es}.json TODOS os textos do site
-src/data/site.ts            WhatsApp, redes sociais, clientes e metadados das soluções
-src/styles/main.css         design system (tokens no :root)
-public/img/                 imagens (originais do site antigo, mockups, Unsplash)
-public/sitemap.xml          sitemap com as 3 versões de idioma
+index.html                     shell HTML (favicon, manifest)
+src/main.ts                    rotas por idioma, i18n, hidratação e diretiva v-reveal
+src/i18n.ts                    i18n próprio (~40 linhas): carrega só o JSON do idioma da página
+src/locales/{pt,en,es}.json    TODOS os textos do site (inclui alt de imagens e FAQ)
+src/data/site.ts               contato, redes, navegação, clientes e metadados das soluções
+src/pages/HomePage.vue         monta as seções
+src/composables/useSeo.ts      title, description, canonical, hreflang, Open Graph/Twitter e JSON-LD
+src/composables/useSiteState.ts  estado compartilhado (filtro de soluções, mensagem do formulário)
+src/composables/reveal.ts      animação de entrada ao rolar (v-reveal)
+src/components/sections/       uma seção por componente (Hero, Solutions, Faq, Contact…)
+src/components/ui/             peças reutilizáveis (AppNav, AppFooter, SectionHeader, ResponsiveImg, HeroGlobe…)
+src/styles/main.css            design system: cores, tipografia e escala de espaçamento em :root
+public/img/brand/              logo, ícones, imagem Open Graph (og-image.jpg)
+public/img/unsplash|products/  fotos e mockups em WebP com variantes responsivas (-640/-1024, -500)
+design-source/                 imagens originais do site antigo (fora do build)
 ```
 
 ## Editando conteúdo
 
 - **Textos:** altere a mesma chave em `src/locales/pt.json`, `en.json` e `es.json`.
-- **Soluções:** textos em `solutionItems` (nos JSONs); categoria e imagem em `SOLUTIONS` (`src/data/site.ts`).
-- **Contato/redes:** constantes em `src/data/site.ts`. O formulário abre o WhatsApp com a mensagem — não há backend.
-- **Novo idioma:** adicione o JSON, inclua o código em `LOCALES`, `HTML_LANG` e `LOCALE_PATH` e registre as
-  mensagens em `src/main.ts`.
+- **Soluções:** textos em `solutionItems` (JSONs); categoria e imagem em `SOLUTIONS` (`src/data/site.ts`).
+- **Espaçamentos:** ajuste `--section-y`, `--block-gap`, `--grid-gap`, `--split-gap` e `--card-pad` no topo do CSS.
+- **Novas fotos:** salve `nome.webp` (1600px) e as variantes `nome-640.webp` e `nome-1024.webp` em
+  `public/img/unsplash/` e use `<ResponsiveImg folder="unsplash" name="nome" … />`.
+
+## SEO
+
+- HTML estático por idioma com `lang`, `title`, `description`, `canonical` e `hreflang` (+ `x-default`).
+- Open Graph / Twitter Card com imagem 1200×630.
+- JSON-LD: `Organization` (contato + catálogo das 10 soluções), `WebSite`, `WebPage` e `FAQPage`.
+- `sitemap.xml` com alternates de idioma, `robots.txt`, `site.webmanifest`.
+- Hierarquia de títulos (1 `h1`, `h2` por seção, `h3` nos itens), `alt` em todas as imagens, seções com `aria-labelledby`.
+
+## Performance (Lighthouse mobile, 4G simulado, servidor com gzip/cache)
+
+Performance **97** · Acessibilidade **100** · Boas práticas **100** · SEO **100**
+— LCP 2,5 s · CLS 0,001 · TBT 0 ms
+
+O que contribui: hidratação real (`hydration: true`), i18n por idioma em chunk separado (sem `vue-i18n`),
+globo em chunk assíncrono iniciado no tempo ocioso, imagens com `srcset`/`sizes` e `loading="lazy"`,
+preload das fontes do título/texto, fallbacks de fonte sem layout shift e título do hero sem animação de opacidade.
 
 ## Pendências para revisar antes de publicar
 
 - **Instagram e LinkedIn:** as URLs em `src/data/site.ts` são suposições (o site antigo não as expunha).
 - **FAQ:** respostas sobre prazos, integrações, setores e LGPD foram redigidas a partir do site antigo; valide com o time.
-- **Cards flutuantes do hero** (ex.: “78%”) são ilustração de interface, não dados reais.
+- **Cards da vitrine** (ex.: “78%”) são ilustração de interface, não dados reais.
 
 ## Créditos das fotos (Unsplash — licença Unsplash)
 
 | Arquivo | Foto |
 |---|---|
-| hero.webp | https://images.unsplash.com/photo-1522071820081-009f0129c71c |
-| team.webp | https://images.unsplash.com/photo-1551434678-e076c223a692 |
-| meeting.webp | https://images.unsplash.com/photo-1531482615713-2afd69097998 |
-| data.webp | https://images.unsplash.com/photo-1551288049-bebda4e38f71 |
-| vr.webp | https://images.unsplash.com/photo-1593508512255-86ab42a8e620 |
-| learning.webp | https://images.unsplash.com/photo-1524178232363-1fb2b075b655 |
-| building.webp | https://images.unsplash.com/photo-1486406146926-c627a92ad1ab |
-| workshop.webp | https://images.unsplash.com/photo-1517245386807-bb43f82c33c4 |
-| engineer.webp | https://images.unsplash.com/photo-1581091226825-a6a2a5aee158 |
+| hero | https://images.unsplash.com/photo-1522071820081-009f0129c71c |
+| team | https://images.unsplash.com/photo-1551434678-e076c223a692 |
+| meeting | https://images.unsplash.com/photo-1531482615713-2afd69097998 |
+| data | https://images.unsplash.com/photo-1551288049-bebda4e38f71 |
+| vr | https://images.unsplash.com/photo-1593508512255-86ab42a8e620 |
+| learning | https://images.unsplash.com/photo-1524178232363-1fb2b075b655 |
+| building | https://images.unsplash.com/photo-1486406146926-c627a92ad1ab |
+| workshop | https://images.unsplash.com/photo-1517245386807-bb43f82c33c4 |
+| engineer | https://images.unsplash.com/photo-1581091226825-a6a2a5aee158 |

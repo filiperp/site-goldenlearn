@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { useI18n } from 'vue-i18n'
-import AppIcon from './AppIcon.vue'
-import { useSiteState } from '../composables/useSiteState'
-import { INSTAGRAM_URL, LINKEDIN_URL, WHATSAPP, WHATSAPP_LABEL } from '../data/site'
+import { useI18n } from '../../i18n'
+import AppIcon from '../ui/AppIcon.vue'
+import SectionHeader from '../ui/SectionHeader.vue'
+import { useSiteState } from '../../composables/useSiteState'
+import { INSTAGRAM_URL, LINKEDIN_URL, WHATSAPP, WHATSAPP_LABEL } from '../../data/site'
 
 const { t } = useI18n()
 const { contactMessage } = useSiteState()
@@ -26,25 +27,17 @@ function submit() {
 </script>
 
 <template>
-  <section id="contato" class="section cta">
+  <section id="contato" class="section cta" aria-labelledby="contato-title">
     <div class="container cta-grid">
-      <div v-reveal>
-        <span class="eyebrow">{{ t('cta.eyebrow') }}</span>
-        <h2 class="h2">{{ t('cta.title') }}</h2>
-        <p class="lead">{{ t('cta.sub') }}</p>
-        <ul class="contact-list">
-          <li>
-            <a :href="`https://wa.me/${WHATSAPP}`" target="_blank" rel="noopener">
-              <span class="ico"><AppIcon name="whatsapp" /></span>{{ t('cta.whatsapp') }} · {{ WHATSAPP_LABEL }}
-            </a>
-          </li>
-          <li>
-            <a :href="LINKEDIN_URL" target="_blank" rel="noopener"><span class="ico"><AppIcon name="linkedin" /></span>{{ t('cta.linkedin') }}</a>
-          </li>
-          <li>
-            <a :href="INSTAGRAM_URL" target="_blank" rel="noopener"><span class="ico"><AppIcon name="instagram" /></span>{{ t('cta.instagram') }}</a>
-          </li>
-        </ul>
+      <div>
+        <SectionHeader id="contato-title" :eyebrow="t('cta.eyebrow')" :title="t('cta.title')" :lead="t('cta.sub')" />
+        <address class="contact-list">
+          <a :href="`https://wa.me/${WHATSAPP}`" target="_blank" rel="noopener">
+            <span class="ico"><AppIcon name="whatsapp" /></span>{{ t('cta.whatsapp') }} · {{ WHATSAPP_LABEL }}
+          </a>
+          <a :href="LINKEDIN_URL" target="_blank" rel="noopener"><span class="ico"><AppIcon name="linkedin" /></span>{{ t('cta.linkedin') }}</a>
+          <a :href="INSTAGRAM_URL" target="_blank" rel="noopener"><span class="ico"><AppIcon name="instagram" /></span>{{ t('cta.instagram') }}</a>
+        </address>
       </div>
 
       <form v-reveal class="form" data-delay="1" @submit.prevent="submit">

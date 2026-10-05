@@ -2,17 +2,17 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 // Globo de partículas (esfera de Fibonacci) desenhado em canvas.
-// Pontos da frente ficam laranja/âmbar, os do fundo azul; anel orbital com "satélites".
+// Otimizações: cores pré-calculadas em buckets e desenho em lote por cor,
+// menos pontos/DPR no mobile, pausa fora da tela e início no tempo ocioso.
 
 const canvas = ref<HTMLCanvasElement | null>(null)
 
-const N = 2400
-const BLUE: [number, number, number] = [47, 111, 214]
-const ORANGE: [number, number, number] = [242, 110, 33]
-const AMBER: [number, number, number] = [255, 181, 71]
+const BLUE = [47, 111, 214]
+const ORANGE = [242, 110, 33]
+const AMBER = [255, 181, 71]
+const LIGHT_STEPS = 16
+const ALPHA_STEPS = 10
 
-let raf = 0
-let running = false
 let cleanup: (() => void) | null = null
 
 function mix(a: number[], b: number[], t: number) {
@@ -23,38 +23,49 @@ function smooth(e0: number, e1: number, x: number) {
   return t * t * (3 - 2 * t)
 }
 
-onMounted(() => {
-  const el = canvas.value
-  if (!el) return
-  const ctx = el.getContext('2d')
+// Paleta: [luz][alpha] → string rgba
+const PALETTE: string[][] = Array.from({ length: LIGHT_STEPS }, (_, li) => {
+  const l = li / (LIGHT_STEPS - 1)
+  const c = l < 0.6 ? mix(BLUE, ORANGE, l / 0.6) : mix(ORANGE, AMBER, (l - 0.6) / 0.4)
+  return Array.from({ length: ALPHA_STEPS }, (_, ai) => {
+    const a = 0.06 + 0.94 * (ai / (ALPHA_STEPS - 1)) ** 2
+    return `rgba(${c[0] | 0},${c[1] | 0},${c[2] | 0},${a.toFixed(3)})`
+  })
+})
+
+function init(el: HTMLCanvasElement) {
+  const ctx = el.getContext('2d', { alpha: true })
   if (!ctx) return
 
+  const mobile = window.matchMedia('(max-width: 760px)').matches
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const N = mobile ? 1100 : 1900
   const pts = new Float32Array(N * 3)
   const golden = Math.PI * (3 - Math.sqrt(5))
   for (let i = 0; i < N; i++) {
     const y = 1 - (i / (N - 1)) * 2
     const r = Math.sqrt(1 - y * y)
-    const th = golden * i
-    pts[i * 3] = Math.cos(th) * r
+    pts[i * 3] = Math.cos(golden * i) * r
     pts[i * 3 + 1] = y
-    pts[i * 3 + 2] = Math.sin(th) * r
+    pts[i * 3 + 2] = Math.sin(golden * i) * r
   }
+  // buckets reaproveitados a cada quadro: lista de (x, y, tamanho)
+  const buckets: number[][] = Array.from({ length: LIGHT_STEPS * ALPHA_STEPS }, () => [])
 
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   let w = 0, h = 0, dpr = 1
-  let angle = 0.6
-  let mx = 0, my = 0, tx = 0, ty = 0
+  let angle = 0.6, mx = 0, my = 0, tx = 0, ty = 0
   let last = performance.now()
+  let raf = 0, running = false
 
   function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2)
-    w = el!.clientWidth
-    h = el!.clientHeight
-    el!.width = Math.round(w * dpr)
-    el!.height = Math.round(h * dpr)
+    dpr = Math.min(window.devicePixelRatio || 1, mobile ? 1.5 : 2)
+    w = el.clientWidth
+    h = el.clientHeight
+    el.width = Math.round(w * dpr)
+    el.height = Math.round(h * dpr)
   }
 
-  function draw(now: number) {
+  function frame(now: number) {
     const dt = Math.min(64, now - last)
     last = now
     if (!reduced) angle += dt * 0.00012
@@ -65,20 +76,18 @@ onMounted(() => {
     c.setTransform(dpr, 0, 0, dpr, 0, 0)
     c.clearRect(0, 0, w, h)
     const cx = w / 2, cy = h / 2
-    const R = Math.min(w, h) * 0.32
+    const R = Math.min(w, h) * 0.36
     const a = angle + mx * 0.35
     const tilt = -0.38 + my * 0.18
     const ca = Math.cos(a), sa = Math.sin(a), ct = Math.cos(tilt), st = Math.sin(tilt)
 
-    // halo atrás do globo
+    // halo + corpo da esfera
     const halo = c.createRadialGradient(cx, cy, R * 0.8, cx, cy, R * 1.7)
     halo.addColorStop(0, 'rgba(242,110,33,0.16)')
     halo.addColorStop(0.5, 'rgba(47,111,214,0.08)')
     halo.addColorStop(1, 'rgba(47,111,214,0)')
     c.fillStyle = halo
     c.fillRect(0, 0, w, h)
-
-    // corpo da esfera: sombreado com luz vinda do alto à direita
     const body = c.createRadialGradient(cx + R * 0.35, cy - R * 0.4, R * 0.05, cx, cy, R)
     body.addColorStop(0, 'rgba(255,170,90,0.30)')
     body.addColorStop(0.35, 'rgba(120,70,60,0.22)')
@@ -88,7 +97,6 @@ onMounted(() => {
     c.arc(cx, cy, R, 0, Math.PI * 2)
     c.fillStyle = body
     c.fill()
-    // borda iluminada
     const rim = c.createLinearGradient(cx - R, cy + R, cx + R, cy - R)
     rim.addColorStop(0, 'rgba(47,111,214,0.15)')
     rim.addColorStop(1, 'rgba(255,181,71,0.55)')
@@ -96,7 +104,8 @@ onMounted(() => {
     c.lineWidth = 1.5
     c.stroke()
 
-    c.globalCompositeOperation = 'lighter'
+    // pontos agrupados por cor
+    for (const b of buckets) b.length = 0
     for (let i = 0; i < N; i++) {
       const x = pts[i * 3], y = pts[i * 3 + 1], z = pts[i * 3 + 2]
       const x1 = x * ca + z * sa
@@ -105,15 +114,23 @@ onMounted(() => {
       const z2 = y * st + z1 * ct
       const depth = (z2 + 1) / 2
       const light = smooth(0.25, 1, depth * 0.75 + (x1 * 0.5 + 0.5) * 0.25 + (-y2 * 0.5 + 0.5) * 0.15)
-      const col = light < 0.6 ? mix(BLUE, ORANGE, light / 0.6) : mix(ORANGE, AMBER, (light - 0.6) / 0.4)
-      const alpha = 0.06 + 0.94 * depth * depth
-      const s = 0.6 + 2.0 * depth
-      c.fillStyle = `rgba(${col[0] | 0},${col[1] | 0},${col[2] | 0},${alpha.toFixed(3)})`
-      c.fillRect(cx + x1 * R - s / 2, cy + y2 * R - s / 2, s, s)
+      const li = Math.round(light * (LIGHT_STEPS - 1))
+      const ai = Math.round(depth * (ALPHA_STEPS - 1))
+      const s = 0.6 + 2 * depth
+      buckets[li * ALPHA_STEPS + ai].push(cx + x1 * R - s / 2, cy + y2 * R - s / 2, s)
     }
-
-    // anel orbital inclinado + satélites
+    c.globalCompositeOperation = 'lighter'
+    for (let k = 0; k < buckets.length; k++) {
+      const b = buckets[k]
+      if (!b.length) continue
+      c.fillStyle = PALETTE[(k / ALPHA_STEPS) | 0][k % ALPHA_STEPS]
+      c.beginPath()
+      for (let j = 0; j < b.length; j += 3) c.rect(b[j], b[j + 1], b[j + 2], b[j + 2])
+      c.fill()
+    }
     c.globalCompositeOperation = 'source-over'
+
+    // anel orbital + satélites
     const ringR = R * 1.32
     c.save()
     c.translate(cx, cy)
@@ -130,44 +147,45 @@ onMounted(() => {
     c.stroke()
     for (let k = 0; k < 3; k++) {
       const t = angle * 2.4 + (k * Math.PI * 2) / 3
-      const sx = Math.cos(t) * ringR, sy = Math.sin(t) * ringR
       const front = Math.sin(t) > 0
       c.beginPath()
-      c.arc(sx, sy, front ? 4 : 2.5, 0, Math.PI * 2)
+      c.arc(Math.cos(t) * ringR, Math.sin(t) * ringR, front ? 4 : 2.5, 0, Math.PI * 2)
       c.fillStyle = front ? 'rgba(255,181,71,0.95)' : 'rgba(47,111,214,0.5)'
       c.shadowColor = 'rgba(242,110,33,0.9)'
       c.shadowBlur = front ? 18 : 0
       c.fill()
     }
     c.restore()
-    c.shadowBlur = 0
 
-    if (running && !reduced) raf = requestAnimationFrame(draw)
+    if (running && !reduced) raf = requestAnimationFrame(frame)
   }
 
-  function start() {
+  const start = () => {
     if (running) return
     running = true
     last = performance.now()
-    raf = requestAnimationFrame(draw)
+    raf = requestAnimationFrame(frame)
   }
-  function stop() {
+  const stop = () => {
     running = false
     cancelAnimationFrame(raf)
   }
-
-  function onPointer(e: PointerEvent) {
+  const onPointer = (e: PointerEvent) => {
     tx = (e.clientX / window.innerWidth) * 2 - 1
     ty = (e.clientY / window.innerHeight) * 2 - 1
   }
 
   resize()
-  const ro = new ResizeObserver(() => { resize(); if (!running) draw(performance.now()) })
+  frame(performance.now())
+  el.classList.add('ready')
+  const ro = new ResizeObserver(() => {
+    resize()
+    if (!running) frame(performance.now())
+  })
   ro.observe(el)
   const io = new IntersectionObserver(([entry]) => (entry.isIntersecting ? start() : stop()))
   io.observe(el)
-  window.addEventListener('pointermove', onPointer, { passive: true })
-  draw(performance.now())
+  if (!mobile) window.addEventListener('pointermove', onPointer, { passive: true })
 
   cleanup = () => {
     stop()
@@ -175,8 +193,15 @@ onMounted(() => {
     io.disconnect()
     window.removeEventListener('pointermove', onPointer)
   }
-})
+}
 
+onMounted(() => {
+  const el = canvas.value
+  if (!el) return
+  const go = () => init(el)
+  if ('requestIdleCallback' in window) requestIdleCallback(go, { timeout: 600 })
+  else setTimeout(go, 120)
+})
 onBeforeUnmount(() => cleanup?.())
 </script>
 

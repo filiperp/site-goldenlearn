@@ -1,13 +1,14 @@
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-import AppIcon from './AppIcon.vue'
+import { useI18n } from '../../i18n'
+import AppIcon from '../ui/AppIcon.vue'
+import ResponsiveImg from '../ui/ResponsiveImg.vue'
 
 const { t } = useI18n()
 const bars = [90, 74, 62, 48, 36, 24]
 </script>
 
 <template>
-  <section id="vitrine" class="showcase">
+  <section id="vitrine" class="showcase" :aria-label="t('showcase.label')">
     <div class="container">
       <div v-reveal class="showcase-stage">
         <div class="float-card fc-1" aria-hidden="true">
@@ -29,7 +30,7 @@ const bars = [90, 74, 62, 48, 36, 24]
           </div>
         </div>
         <div class="showcase-frame">
-          <img src="/img/unsplash/hero.webp" alt="" width="1600" height="1067" loading="lazy">
+          <ResponsiveImg folder="unsplash" name="hero" :alt="t('alt.showcase')" sizes="(max-width: 1280px) 100vw, 1240px" :width="1600" :height="1067" />
         </div>
       </div>
     </div>

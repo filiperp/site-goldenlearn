@@ -1,46 +1,29 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue'
-import { useHead } from '@unhead/vue'
-import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
-import AppNav from '../components/AppNav.vue'
-import HeroSection from '../components/HeroSection.vue'
-import ShowcaseSection from '../components/ShowcaseSection.vue'
-import LogoMarquee from '../components/LogoMarquee.vue'
-import PillarsSection from '../components/PillarsSection.vue'
-import SolutionsSection from '../components/SolutionsSection.vue'
-import ApproachSection from '../components/ApproachSection.vue'
-import SpotlightSection from '../components/SpotlightSection.vue'
-import AboutSection from '../components/AboutSection.vue'
-import PartnersSection from '../components/PartnersSection.vue'
-import FaqSection from '../components/FaqSection.vue'
-import ContactSection from '../components/ContactSection.vue'
-import AppFooter from '../components/AppFooter.vue'
-import { HTML_LANG, LOCALE_PATH, LOCALES, SITE_URL, type Locale } from '../data/site'
+import AppNav from '../components/ui/AppNav.vue'
+import AppFooter from '../components/ui/AppFooter.vue'
+import HeroSection from '../components/sections/HeroSection.vue'
+import ShowcaseSection from '../components/sections/ShowcaseSection.vue'
+import LogoMarquee from '../components/sections/LogoMarquee.vue'
+import PillarsSection from '../components/sections/PillarsSection.vue'
+import SolutionsSection from '../components/sections/SolutionsSection.vue'
+import ApproachSection from '../components/sections/ApproachSection.vue'
+import SpotlightSection from '../components/sections/SpotlightSection.vue'
+import AboutSection from '../components/sections/AboutSection.vue'
+import PartnersSection from '../components/sections/PartnersSection.vue'
+import FaqSection from '../components/sections/FaqSection.vue'
+import ContactSection from '../components/sections/ContactSection.vue'
+import { useSeo } from '../composables/useSeo'
+import { useI18n } from '../i18n'
+import { LOCALE_PATH, type Locale } from '../data/site'
 
-const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
+const { t } = useI18n()
 const locale = computed(() => (route.meta.locale as Locale) ?? 'pt')
 
-useHead({
-  htmlAttrs: { lang: () => HTML_LANG[locale.value] },
-  title: () => t('meta.title'),
-  meta: [
-    { name: 'description', content: () => t('meta.description') },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:title', content: () => t('meta.title') },
-    { property: 'og:description', content: () => t('meta.description') },
-    { property: 'og:url', content: () => SITE_URL + LOCALE_PATH[locale.value] },
-    { property: 'og:image', content: `${SITE_URL}/img/unsplash/hero.webp` },
-    { property: 'og:locale', content: () => HTML_LANG[locale.value].replace('-', '_') },
-  ],
-  link: [
-    { rel: 'canonical', href: () => SITE_URL + LOCALE_PATH[locale.value] },
-    ...LOCALES.map((l) => ({ rel: 'alternate', hreflang: HTML_LANG[l], href: SITE_URL + LOCALE_PATH[l] })),
-    { rel: 'alternate', hreflang: 'x-default', href: SITE_URL + '/' },
-  ],
-})
+useSeo(locale)
 
 // Visitante que já escolheu EN/ES volta para o idioma salvo ao abrir a raiz.
 onMounted(() => {
@@ -52,19 +35,22 @@ onMounted(() => {
 </script>
 
 <template>
+  <a class="skip-link" href="#conteudo">{{ t('nav.skip') }}</a>
   <AppNav />
   <main id="top">
     <HeroSection />
-    <ShowcaseSection />
-    <LogoMarquee />
-    <PillarsSection />
-    <SolutionsSection />
-    <ApproachSection />
-    <SpotlightSection />
-    <AboutSection />
-    <PartnersSection />
-    <FaqSection />
-    <ContactSection />
+    <div id="conteudo">
+      <ShowcaseSection />
+      <LogoMarquee />
+      <PillarsSection />
+      <SolutionsSection />
+      <ApproachSection />
+      <SpotlightSection />
+      <AboutSection />
+      <PartnersSection />
+      <FaqSection />
+      <ContactSection />
+    </div>
   </main>
   <AppFooter />
 </template>

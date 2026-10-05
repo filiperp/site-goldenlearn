@@ -1,5 +1,9 @@
 import type { Directive } from 'vue'
 
+// v-reveal: o SSR marca o elemento com data-reveal (oculto via CSS) e, no cliente,
+// um IntersectionObserver troca para data-reveal="in" quando ele entra na tela.
+// Usa atributo (e não classe) para não divergir da hidratação nem ser apagado em re-renders.
+
 let observer: IntersectionObserver | null = null
 
 function getObserver() {
@@ -8,7 +12,7 @@ function getObserver() {
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            entry.target.classList.add('in')
+            entry.target.setAttribute('data-reveal', 'in')
             observer!.unobserve(entry.target)
           }
         }
@@ -19,15 +23,15 @@ function getObserver() {
   return observer
 }
 
-/** Adiciona a classe `reveal` e a anima quando o elemento entra na tela. */
 export const vReveal: Directive<HTMLElement> = {
-  getSSRProps: () => ({ class: 'reveal' }),
+  getSSRProps: () => ({ 'data-reveal': '' }),
   mounted(el) {
-    el.classList.add('reveal')
+    if (el.getAttribute('data-reveal') === 'in') return
     if (!('IntersectionObserver' in window)) {
-      el.classList.add('in')
+      el.setAttribute('data-reveal', 'in')
       return
     }
+    if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', '')
     getObserver().observe(el)
   },
   unmounted(el) {

@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Golden Learn — Business performance through technology, data and people",
-    "description": "SaaS platforms and consulting solutions for people development, corporate learning, data-driven management and high-performance operations. Google Cloud Partner."
+    "description": "SaaS platforms and consulting for people development, corporate learning, data-driven management and operations. Google Cloud Partner."
   },
   "nav": {
     "solutions": "Solutions",
@@ -9,7 +9,11 @@
     "about": "About",
     "partners": "Partners",
     "faq": "FAQ",
-    "cta": "Talk to an expert"
+    "cta": "Talk to an expert",
+    "label": "Main navigation",
+    "language": "Language",
+    "menu": "Open menu",
+    "skip": "Skip to content"
   },
   "hero": {
     "badgeTag": "Google Cloud Partner",
@@ -29,16 +33,10 @@
     "card2Pill": "Low and falling",
     "card3Label": "Certificate issued",
     "card3Title": "Machine Safety",
-    "askLabel": "What do you want to improve in your company?",
-    "askPh": "E.g.: I need to reduce turnover in operations and develop new leaders…",
-    "askSend": "Send question",
-    "scroll": "Explore",
-    "chip1": "Reduce turnover",
-    "chip2": "Digitize training",
-    "chip3": "Map competencies",
-    "chip4": "Decide with data",
-    "chip5": "Train in virtual reality",
-    "chip6": "Manage assets and maintenance"
+    "scroll": "Scroll to explore",
+    "fact1": "35+ years of experience",
+    "fact2": "10 integrated solutions",
+    "fact3": "Clients like Pfizer, Nestlé and Santander"
   },
   "logos": {
     "title": "Organizations that trust Golden Group"
@@ -279,5 +277,16 @@
         "Operational excellence models"
       ]
     }
-  ]
+  ],
+  "showcase": {
+    "label": "Golden Learn platforms in action"
+  },
+  "alt": {
+    "showcase": "Team working together with Golden Learn digital platforms",
+    "workshop": "Diagnosis workshop with a client",
+    "vr": "Professional training with a virtual reality headset",
+    "building": "Corporate building facade",
+    "team": "Professionals analyzing data on a computer",
+    "engineer": "Engineer in a testing lab"
+  }
 }

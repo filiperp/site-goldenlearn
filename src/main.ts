@@ -1,16 +1,13 @@
 import { ViteSSG } from 'vite-ssg'
-import { createI18n } from 'vue-i18n'
 import type { RouteRecordRaw } from 'vue-router'
 import App from './App.vue'
 import HomePage from './pages/HomePage.vue'
+import { createI18n } from './i18n'
 import { LOCALE_PATH, LOCALES, type Locale } from './data/site'
 import { vReveal } from './composables/reveal'
-import pt from './locales/pt.json'
-import en from './locales/en.json'
-import es from './locales/es.json'
-import '@fontsource-variable/bricolage-grotesque'
-import '@fontsource-variable/geist'
-import '@fontsource-variable/geist-mono'
+import '@fontsource-variable/bricolage-grotesque/wght.css'
+import '@fontsource-variable/geist/wght.css'
+import '@fontsource-variable/geist-mono/wght.css'
 import './styles/main.css'
 
 const routes: RouteRecordRaw[] = LOCALES.map((locale) => ({
@@ -29,18 +26,13 @@ export const createApp = ViteSSG(
     },
   },
   ({ app, router }) => {
-    const i18n = createI18n({
-      legacy: false,
-      locale: 'pt',
-      fallbackLocale: 'pt',
-      warnHtmlMessage: false,
-      messages: { pt, en, es },
-    })
+    const i18n = createI18n()
     app.use(i18n)
     app.directive('reveal', vReveal)
-
-    router.beforeEach((to) => {
-      i18n.global.locale.value = (to.meta.locale as Locale) ?? 'pt'
+    router.beforeEach(async (to) => {
+      await i18n.setLocale((to.meta.locale as Locale) ?? 'pt')
     })
   },
+  // Hidrata o HTML pré-renderizado em vez de recriar a página inteira no cliente.
+  { hydration: true },
 )
