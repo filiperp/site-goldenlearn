@@ -27,6 +27,8 @@ DEBUG_HYDRATION=1 npm run build   # build com detalhes de divergência SSR/clien
 
 ## Publicação
 
+> Passo a passo completo (Pages, domínio, DNS, HTTPS e problemas comuns): [docs/GITHUB_PAGES.md](docs/GITHUB_PAGES.md)
+
 ### GitHub Pages (automático)
 
 O workflow `.github/workflows/deploy.yml` faz o build e publica a cada push no `main`
