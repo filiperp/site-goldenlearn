@@ -2,7 +2,7 @@
 import { useI18n } from '../../i18n'
 import AppIcon from '../ui/AppIcon.vue'
 import SectionHeader from '../ui/SectionHeader.vue'
-import { GOOGLE_PARTNER_URL } from '../../data/site'
+import { asset, GOOGLE_PARTNER_URL } from '../../data/site'
 
 const { t } = useI18n()
 </script>
@@ -18,7 +18,7 @@ const { t } = useI18n()
             <p>{{ t('partners.c1Text') }}</p>
           </div>
           <div class="logos-img">
-            <img src="/img/partners/parceiros.webp" alt="Life Academy, Golden Connection, GM Cinco, Google Digital Native Partner" width="1365" height="160" loading="lazy" decoding="async">
+            <img :src="asset('img/partners/parceiros.webp')" alt="Life Academy, Golden Connection, GM Cinco, Google Digital Native Partner" width="1365" height="160" loading="lazy" decoding="async">
           </div>
         </article>
         <article v-reveal class="partner-card" data-delay="1">
@@ -27,12 +27,12 @@ const { t } = useI18n()
             <p>{{ t('partners.c2Text') }}</p>
           </div>
           <div class="logos-img">
-            <img src="/img/partners/instituicoes.webp" alt="MIT, University of Oxford, Johns Hopkins University, The University of Chicago, Harvard University" width="1506" height="110" loading="lazy" decoding="async">
+            <img :src="asset('img/partners/instituicoes.webp')" alt="MIT, University of Oxford, Johns Hopkins University, The University of Chicago, Harvard University" width="1506" height="110" loading="lazy" decoding="async">
           </div>
         </article>
       </div>
       <div v-reveal class="google-badge">
-        <div class="g-logo"><img src="/img/brand/google-partner.png" alt="Google Partner" width="355" height="251" loading="lazy" decoding="async"></div>
+        <div class="g-logo"><img :src="asset('img/brand/google-partner.png')" alt="Google Partner" width="355" height="251" loading="lazy" decoding="async"></div>
         <div>
           <h3 class="h3">{{ t('partners.googleTitle') }}</h3>
           <p>{{ t('partners.googleText') }}</p>

@@ -21,6 +21,7 @@ export const createApp = ViteSSG(
   App,
   {
     routes,
+    base: import.meta.env.BASE_URL,
     scrollBehavior(to) {
       return to.hash ? { el: to.hash, behavior: 'smooth' } : { top: 0 }
     },

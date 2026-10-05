@@ -2,7 +2,7 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { useI18n } from '../../i18n'
 import AppIcon from './AppIcon.vue'
-import { HTML_LANG, LOCALE_PATH, LOCALES, NAV_LINKS, type Locale } from '../../data/site'
+import { asset, HTML_LANG, LOCALE_PATH, LOCALES, NAV_LINKS, type Locale } from '../../data/site'
 
 const { t, locale } = useI18n()
 const scrolled = ref(false)
@@ -26,7 +26,7 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
   <header class="nav" :class="{ scrolled: scrolled || open }">
     <div class="container nav-inner">
       <a class="nav-logo" href="#top" aria-label="Golden Learn — início">
-        <img src="/img/brand/logo-white.png" alt="Golden Learn" width="320" height="132" fetchpriority="high">
+        <img :src="asset('img/brand/logo-white.png')" alt="Golden Learn" width="320" height="132" fetchpriority="high">
       </a>
       <nav :aria-label="t('nav.label')">
         <ul class="nav-links">
