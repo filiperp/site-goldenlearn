@@ -9,9 +9,27 @@ estático e o Vue **hidrata** a página no navegador (sem recriar o DOM).
 | English | `/en/` | `dist/en/index.html` |
 | Español | `/es/` | `dist/es/index.html` |
 
-Visual: tema escuro, títulos em **Bricolage Grotesque**, texto em **Geist** e rótulos em **Geist Mono**
-(auto-hospedadas via Fontsource, com fallbacks de métricas ajustadas pelo `fontaine`). A abertura ocupa a tela
-inteira e tem um globo de partículas em canvas (`HeroGlobe.vue`, carregado sob demanda).
+Visual: identidade do **Grupo Golden Corp** ([goldencorp.com.br](https://goldencorp.com.br/)) —
+**tema claro como padrão** e tema escuro opcional (botão sol/lua no menu, salvo no navegador).
+Títulos em **Source Serif 4** e texto em **Inter** (auto-hospedadas via Fontsource, com fallbacks de métricas
+ajustadas pelo `fontaine`). A abertura ocupa a tela inteira e tem um globo de partículas em canvas
+(`HeroGlobe.vue`, carregado sob demanda) que usa as cores do tema.
+
+### Paleta (tokens em `src/styles/main.css`)
+
+| Token | Cor | Uso |
+|---|---|---|
+| `--navy` | `#082b3b` | títulos, blocos escuros, botão secundário |
+| `--deep` | `#061f2c` | rodapé, fundo do tema escuro |
+| `--ink` | `#153742` | texto |
+| `--muted` | `#5d717a` | texto secundário |
+| `--teal` | `#337f85` | destaques em títulos, rótulos, links |
+| `--aqua` | `#8ed5d0` | destaques sobre fundo escuro |
+| `--gold` | `#edaa56` | botão principal (CTA) |
+| `--pale` | `#f0f5f5` | seções alternadas |
+
+Os componentes usam tokens semânticos (`--bg`, `--surface`, `--heading`, `--text`, `--accent`, `--line`…),
+redefinidos em `:root[data-theme="dark"]` para o tema escuro.
 
 ## Comandos
 

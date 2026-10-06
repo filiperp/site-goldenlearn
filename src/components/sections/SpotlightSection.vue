@@ -16,7 +16,7 @@ const dice = [
 </script>
 
 <template>
-  <section class="section spotlight" aria-labelledby="spot-title">
+  <section class="section spotlight on-dark" aria-labelledby="spot-title">
     <div class="container spot-grid">
       <div>
         <SectionHeader id="spot-title" :eyebrow="t('spot.eyebrow')" :title="t('spot.title')" :lead="t('spot.text')" />

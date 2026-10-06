@@ -9,9 +9,12 @@ export default defineConfig({
   plugins: [
     vue(),
     // Gera fontes de fallback com métricas ajustadas (size-adjust/ascent-override):
-    // o texto não "pula" quando Bricolage/Geist terminam de carregar.
+    // o texto não "pula" quando Source Serif / Inter terminam de carregar.
     FontaineTransform.vite({
-      fallbacks: ['Arial', 'Helvetica Neue', 'Roboto'],
+      fallbacks: {
+        'Source Serif 4 Variable': ['Georgia', 'Times New Roman', 'Noto Serif'],
+        'Inter Variable': ['Helvetica Neue', 'Arial', 'Roboto'],
+      },
       resolvePath: (id) => new URL(id.startsWith('/') ? `.${id}` : id, new URL('./', import.meta.url)),
     }),
   ],

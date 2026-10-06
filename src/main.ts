@@ -5,9 +5,8 @@ import HomePage from './pages/HomePage.vue'
 import { createI18n } from './i18n'
 import { LOCALE_PATH, LOCALES, type Locale } from './data/site'
 import { vReveal } from './composables/reveal'
-import '@fontsource-variable/bricolage-grotesque/wght.css'
-import '@fontsource-variable/geist/wght.css'
-import '@fontsource-variable/geist-mono/wght.css'
+import '@fontsource-variable/source-serif-4/wght.css'
+import '@fontsource-variable/inter/wght.css'
 import './styles/main.css'
 
 const routes: RouteRecordRaw[] = LOCALES.map((locale) => ({

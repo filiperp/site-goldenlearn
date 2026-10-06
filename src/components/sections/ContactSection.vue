@@ -27,7 +27,7 @@ function submit() {
 </script>
 
 <template>
-  <section id="contato" class="section cta" aria-labelledby="contato-title">
+  <section id="contato" class="section cta on-dark" aria-labelledby="contato-title">
     <div class="container cta-grid">
       <div>
         <SectionHeader id="contato-title" :eyebrow="t('cta.eyebrow')" :title="t('cta.title')" :lead="t('cta.sub')" />
