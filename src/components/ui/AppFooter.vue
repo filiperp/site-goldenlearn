@@ -52,7 +52,7 @@ const company = NAV_LINKS.filter((l) => l.href !== '#solucoes')
         <small>© {{ year }} Grupo Golden Learn. {{ t('footer.rights') }}</small>
         <small>{{ t('footer.made') }}</small>
       </div>
-      <p class="footer-word" aria-hidden="true">Golden Learn</p>
+      <div class="footer-word" data-word="Golden Learn" aria-hidden="true" />
     </div>
   </footer>
   <a class="wa-float" :href="`https://wa.me/${WHATSAPP}`" target="_blank" rel="noopener" :aria-label="`WhatsApp ${WHATSAPP_LABEL}`">

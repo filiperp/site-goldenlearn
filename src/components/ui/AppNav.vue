@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { useI18n } from '../../i18n'
+import { useTheme } from '../../composables/useTheme'
 import AppIcon from './AppIcon.vue'
 import { asset, HTML_LANG, LOCALE_PATH, LOCALES, NAV_LINKS, type Locale } from '../../data/site'
 
 const { t, locale } = useI18n()
+const { theme, toggle } = useTheme()
 const scrolled = ref(false)
 const open = ref(false)
 
@@ -26,7 +28,8 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
   <header class="nav" :class="{ scrolled: scrolled || open }">
     <div class="container nav-inner">
       <a class="nav-logo" href="#top" aria-label="Golden Learn — início">
-        <img :src="asset('img/brand/logo-white.png')" alt="Golden Learn" width="320" height="132" fetchpriority="high">
+        <img class="logo-light" :src="asset('img/brand/logo.png')" alt="Golden Learn" width="320" height="132" fetchpriority="high">
+        <img class="logo-dark" :src="asset('img/brand/logo-white.png')" alt="" width="320" height="132">
       </a>
       <nav :aria-label="t('nav.label')">
         <ul class="nav-links">
@@ -45,8 +48,17 @@ onBeforeUnmount(() => window.removeEventListener('scroll', onScroll))
             @click="rememberLocale(l)"
           >{{ l.toUpperCase() }}</RouterLink>
         </div>
+        <button
+          class="icon-btn"
+          type="button"
+          :aria-label="theme === 'dark' ? t('nav.themeLight') : t('nav.themeDark')"
+          :title="theme === 'dark' ? t('nav.themeLight') : t('nav.themeDark')"
+          @click="toggle"
+        >
+          <AppIcon :name="theme === 'dark' ? 'sun' : 'moon'" />
+        </button>
         <a class="btn btn-primary" href="#contato">{{ t('nav.cta') }}</a>
-        <button class="menu-toggle" type="button" :aria-label="t('nav.menu')" :aria-expanded="open" aria-controls="mobile-menu" @click="open = !open">
+        <button class="icon-btn menu-toggle" type="button" :aria-label="t('nav.menu')" :aria-expanded="open" aria-controls="mobile-menu" @click="open = !open">
           <AppIcon :name="open ? 'close' : 'menu'" />
         </button>
       </div>

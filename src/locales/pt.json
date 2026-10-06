@@ -13,7 +13,9 @@
     "label": "Navegação principal",
     "language": "Idioma",
     "menu": "Abrir menu",
-    "skip": "Pular para o conteúdo"
+    "skip": "Pular para o conteúdo",
+    "themeLight": "Usar tema claro",
+    "themeDark": "Usar tema escuro"
   },
   "hero": {
     "badgeTag": "Google Cloud Partner",

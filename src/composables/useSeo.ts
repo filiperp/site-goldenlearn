@@ -5,8 +5,8 @@ import {
   FAQ_COUNT, GOOGLE_PARTNER_URL, HTML_LANG, INSTAGRAM_URL, LINKEDIN_URL, LOCALE_PATH, LOCALES,
   OG_LOCALE, ORG_LEGAL_NAME, PHONE_E164, SITE_NAME, SITE_URL, type Locale, type SolutionText,
 } from '../data/site'
-import bricolage from '@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2?url'
-import geist from '@fontsource-variable/geist/files/geist-latin-wght-normal.woff2?url'
+import serif from '@fontsource-variable/source-serif-4/files/source-serif-4-latin-wght-normal.woff2?url'
+import sans from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url'
 
 const OG_IMAGE = `${SITE_URL}/img/brand/og-image.jpg`
 
@@ -107,8 +107,8 @@ export function useSeo(locale: Ref<Locale>) {
       { rel: 'canonical', href: () => url.value },
       ...LOCALES.map((l) => ({ rel: 'alternate', hreflang: HTML_LANG[l], href: SITE_URL + LOCALE_PATH[l] })),
       { rel: 'alternate', hreflang: 'x-default', href: `${SITE_URL}/` },
-      { rel: 'preload', as: 'font', type: 'font/woff2', href: bricolage, crossorigin: '' },
-      { rel: 'preload', as: 'font', type: 'font/woff2', href: geist, crossorigin: '' },
+      { rel: 'preload', as: 'font', type: 'font/woff2', href: serif, crossorigin: '' },
+      { rel: 'preload', as: 'font', type: 'font/woff2', href: sans, crossorigin: '' },
     ],
     script: [{ type: 'application/ld+json', innerHTML: () => jsonLd.value }],
   })

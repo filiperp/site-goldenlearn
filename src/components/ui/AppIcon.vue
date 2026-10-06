@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  name: 'arrow' | 'external' | 'check' | 'menu' | 'close' | 'globe' | 'star' | 'trend' | 'badge' | 'whatsapp' | 'linkedin' | 'instagram'
+  name: 'arrow' | 'external' | 'check' | 'menu' | 'close' | 'globe' | 'star' | 'trend' | 'badge' | 'whatsapp' | 'linkedin' | 'instagram' | 'sun' | 'moon'
 }>()
 </script>
 
@@ -23,6 +23,8 @@ defineProps<{
     <template v-else-if="name === 'globe'"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" /></template>
     <path v-else-if="name === 'star'" d="M12 3l2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.4 6.7 19.1l1-5.8L3.5 9.2l5.9-.9z" />
     <path v-else-if="name === 'trend'" d="M3 17l6-6 4 4 8-8M15 7h6v6" />
+    <template v-else-if="name === 'sun'"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></template>
+    <path v-else-if="name === 'moon'" d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z" />
     <path v-else-if="name === 'badge'" d="M12 15l-3.5 2 1-4-3-2.7 4-.3L12 6l1.5 4 4 .3-3 2.7 1 4z" />
   </svg>
 </template>
