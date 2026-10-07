@@ -93,6 +93,13 @@ design-source/                 imagens originais do site antigo (fora do build)
 
 - **Textos:** altere a mesma chave em `src/locales/pt.json`, `en.json` e `es.json`.
 - **Soluções:** textos em `solutionItems` (JSONs); categoria e imagem em `SOLUTIONS` (`src/data/site.ts`).
+- **Logos de clientes:** coloque o arquivo colorido (SVG de preferência; ou PNG/WEBP) em
+  `design-source/clients/`, adicione/edite a linha em `design-source/clients/clients.csv`
+  (`key,name,source` — a ordem do CSV é a ordem da faixa) e rode `python3 scripts/build-client-logos.py`.
+  O script apara, otimiza, equilibra o tamanho visual e gera `public/img/clients/` + `src/data/clients.json`.
+  Fontes: logos oficiais atuais para marcas ativas (sites das empresas / Wikimedia Commons). Empresas que
+  fazem parte do histórico (Adams, CIV, Cisper, GrandFood, Socil, LB) mantêm o nome e o logo originais;
+  PremieRpet, Paquetá, Minea e Simak também vêm de recortes da arte antiga até haver arquivo oficial.
 - **Espaçamentos:** ajuste `--section-y`, `--block-gap`, `--grid-gap`, `--split-gap` e `--card-pad` no topo do CSS.
 - **Novas fotos:** salve `nome.webp` (1600px) e as variantes `nome-640.webp` e `nome-1024.webp` em
   `public/img/unsplash/` e use `<ResponsiveImg folder="unsplash" name="nome" … />`.

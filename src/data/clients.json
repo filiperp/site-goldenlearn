@@ -1,0 +1,170 @@
+[
+  {
+    "key": "pfizer",
+    "name": "Pfizer",
+    "file": "pfizer.svg",
+    "w": 126,
+    "h": 52
+  },
+  {
+    "key": "nestle",
+    "name": "Nestlé",
+    "file": "nestle.svg",
+    "w": 154,
+    "h": 42
+  },
+  {
+    "key": "santander",
+    "name": "Santander",
+    "file": "santander.svg",
+    "w": 170,
+    "h": 30
+  },
+  {
+    "key": "basf",
+    "name": "BASF",
+    "file": "basf.svg",
+    "w": 170,
+    "h": 32
+  },
+  {
+    "key": "komatsu",
+    "name": "Komatsu",
+    "file": "komatsu.svg",
+    "w": 170,
+    "h": 33
+  },
+  {
+    "key": "adams",
+    "name": "Adams",
+    "file": "adams.webp",
+    "w": 137,
+    "h": 47
+  },
+  {
+    "key": "garoto",
+    "name": "Chocolates Garoto",
+    "file": "garoto.svg",
+    "w": 114,
+    "h": 57
+  },
+  {
+    "key": "bombril",
+    "name": "Bombril",
+    "file": "bombril.svg",
+    "w": 99,
+    "h": 58
+  },
+  {
+    "key": "civ",
+    "name": "CIV",
+    "file": "civ.webp",
+    "w": 60,
+    "h": 58
+  },
+  {
+    "key": "oi-glass",
+    "name": "O-I",
+    "file": "oi-glass.svg",
+    "w": 79,
+    "h": 58
+  },
+  {
+    "key": "cisper",
+    "name": "Cisper",
+    "file": "cisper.webp",
+    "w": 132,
+    "h": 49
+  },
+  {
+    "key": "drogaria-sao-paulo",
+    "name": "Drogaria São Paulo",
+    "file": "drogaria-sao-paulo.svg",
+    "w": 170,
+    "h": 31
+  },
+  {
+    "key": "pacheco",
+    "name": "Drogarias Pacheco",
+    "file": "pacheco.svg",
+    "w": 161,
+    "h": 40
+  },
+  {
+    "key": "premierpet",
+    "name": "PremieRpet",
+    "file": "premierpet.webp",
+    "w": 170,
+    "h": 33
+  },
+  {
+    "key": "grandfood",
+    "name": "GrandFood",
+    "file": "grandfood.webp",
+    "w": 107,
+    "h": 58
+  },
+  {
+    "key": "socil",
+    "name": "Socil",
+    "file": "socil.webp",
+    "w": 132,
+    "h": 49
+  },
+  {
+    "key": "manserv",
+    "name": "Manserv",
+    "file": "manserv.svg",
+    "w": 170,
+    "h": 25
+  },
+  {
+    "key": "simak",
+    "name": "Simak Rent",
+    "file": "simak.webp",
+    "w": 119,
+    "h": 55
+  },
+  {
+    "key": "brascorp",
+    "name": "Brascorp",
+    "file": "brascorp.webp",
+    "w": 170,
+    "h": 27
+  },
+  {
+    "key": "capodarte",
+    "name": "Capodarte",
+    "file": "capodarte.svg",
+    "w": 170,
+    "h": 33
+  },
+  {
+    "key": "dumond",
+    "name": "Dumond",
+    "file": "dumond.svg",
+    "w": 170,
+    "h": 30
+  },
+  {
+    "key": "paqueta",
+    "name": "Paquetá",
+    "file": "paqueta.webp",
+    "w": 170,
+    "h": 31
+  },
+  {
+    "key": "lb",
+    "name": "LB",
+    "file": "lb.webp",
+    "w": 58,
+    "h": 58
+  },
+  {
+    "key": "minea",
+    "name": "Minea",
+    "file": "minea.webp",
+    "w": 144,
+    "h": 45
+  }
+]
