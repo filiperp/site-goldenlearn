@@ -51,8 +51,5 @@ export const SOLUTIONS: { id: string; cat: Category; img: string }[] = [
   { id: 'ppt', cat: 'data', img: 'ppt' },
 ]
 
-export const CLIENTS = [
-  'Pfizer', 'Nestlé', 'Santander', 'BASF', 'Komatsu', 'Garoto', 'Bombril', 'Adams',
-  'Drogaria São Paulo', 'Drogarias Pacheco', 'PremieRpet', 'Manserv', 'Paquetá', 'Capodarte',
-  'Cisper', 'GrandFood', 'Socil', 'Brascorp', 'Simak Rent', 'Minea', 'Dumond',
-]
+// Clientes (logos): ver src/data/clients.json, gerado por scripts/build-client-logos.py
+// a partir de design-source/clients/clients.csv.
