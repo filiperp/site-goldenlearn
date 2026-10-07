@@ -97,8 +97,9 @@ design-source/                 imagens originais do site antigo (fora do build)
   `design-source/clients/`, adicione/edite a linha em `design-source/clients/clients.csv`
   (`key,name,source` — a ordem do CSV é a ordem da faixa) e rode `python3 scripts/build-client-logos.py`.
   O script apara, otimiza, equilibra o tamanho visual e gera `public/img/clients/` + `src/data/clients.json`.
-  Fontes: logos oficiais (sites das empresas / Wikimedia Commons); PremieRpet, Paquetá, Minea e Simak
-  vêm de recortes da arte antiga até haver arquivo oficial.
+  Fontes: logos oficiais atuais para marcas ativas (sites das empresas / Wikimedia Commons). Empresas que
+  fazem parte do histórico (Adams, CIV, Cisper, GrandFood, Socil, LB) mantêm o nome e o logo originais;
+  PremieRpet, Paquetá, Minea e Simak também vêm de recortes da arte antiga até haver arquivo oficial.
 - **Espaçamentos:** ajuste `--section-y`, `--block-gap`, `--grid-gap`, `--split-gap` e `--card-pad` no topo do CSS.
 - **Novas fotos:** salve `nome.webp` (1600px) e as variantes `nome-640.webp` e `nome-1024.webp` em
   `public/img/unsplash/` e use `<ResponsiveImg folder="unsplash" name="nome" … />`.

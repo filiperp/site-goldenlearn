@@ -35,11 +35,11 @@
     "h": 33
   },
   {
-    "key": "mondelez",
-    "name": "Mondelēz International",
-    "file": "mondelez.svg",
-    "w": 165,
-    "h": 39
+    "key": "adams",
+    "name": "Adams",
+    "file": "adams.webp",
+    "w": 137,
+    "h": 47
   },
   {
     "key": "garoto",
@@ -49,13 +49,6 @@
     "h": 57
   },
   {
-    "key": "oi-glass",
-    "name": "O-I Glass",
-    "file": "oi-glass.svg",
-    "w": 79,
-    "h": 58
-  },
-  {
     "key": "bombril",
     "name": "Bombril",
     "file": "bombril.svg",
@@ -63,11 +56,25 @@
     "h": 58
   },
   {
-    "key": "adm",
-    "name": "ADM",
-    "file": "adm.webp",
-    "w": 170,
-    "h": 34
+    "key": "civ",
+    "name": "CIV",
+    "file": "civ.webp",
+    "w": 60,
+    "h": 58
+  },
+  {
+    "key": "oi-glass",
+    "name": "O-I",
+    "file": "oi-glass.svg",
+    "w": 79,
+    "h": 58
+  },
+  {
+    "key": "cisper",
+    "name": "Cisper",
+    "file": "cisper.webp",
+    "w": 132,
+    "h": 49
   },
   {
     "key": "drogaria-sao-paulo",
@@ -89,6 +96,20 @@
     "file": "premierpet.webp",
     "w": 170,
     "h": 33
+  },
+  {
+    "key": "grandfood",
+    "name": "GrandFood",
+    "file": "grandfood.webp",
+    "w": 107,
+    "h": 58
+  },
+  {
+    "key": "socil",
+    "name": "Socil",
+    "file": "socil.webp",
+    "w": 132,
+    "h": 49
   },
   {
     "key": "manserv",
@@ -131,6 +152,13 @@
     "file": "paqueta.webp",
     "w": 170,
     "h": 31
+  },
+  {
+    "key": "lb",
+    "name": "LB",
+    "file": "lb.webp",
+    "w": 58,
+    "h": 58
   },
   {
     "key": "minea",
